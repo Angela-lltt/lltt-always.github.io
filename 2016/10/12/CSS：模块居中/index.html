@@ -1,0 +1,638 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="五种使 div 块水平垂直居中的CSS实现方法；文字在div中居中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS使div居中">
+<meta property="og:url" content="http://yoursite.com/2016/10/12/CSS：模块居中/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="五种使 div 块水平垂直居中的CSS实现方法；文字在div中居中">
+<meta property="og:updated_time" content="2016-08-24T10:18:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS使div居中">
+<meta name="twitter:description" content="五种使 div 块水平垂直居中的CSS实现方法；文字在div中居中">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/12/CSS：模块居中/"/>
+
+  <title> CSS使div居中 | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS使div居中
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-12T12:31:20+08:00" content="2016-10-12">
+              2016-10-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>五种使 div 块水平垂直居中的CSS实现方法；文字在div中居中</p>
+<a id="more"></a>
+<p><em>html模板</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;test.css&quot;&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;a&quot;&gt;</div><div class="line">        &lt;div id=&quot;b&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><em>CSS样式</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#a &#123;</div><div class="line">    width:800px;</div><div class="line">    height:800px;</div><div class="line">&#125;</div><div class="line">#b &#123;</div><div class="line">    width:500px;</div><div class="line">    height:500px</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="方法一：绝对定位法"><a href="#方法一：绝对定位法" class="headerlink" title="方法一：绝对定位法"></a>方法一：绝对定位法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#a &#123;</div><div class="line">    position: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#b &#123;</div><div class="line">    position:absolute; </div><div class="line">    /*#b 对于 #a 是绝对定位*/</div><div class="line">    margin:auto; </div><div class="line">    /*浏览器计算margin的方式是左右的外边距等于父容器减去子容器剩余部分的宽度均匀分配给左右*/</div><div class="line">    top: 0;left: 0;bottom: 0;right: 0; </div><div class="line">    /*top, left, bottom, right以包含margin的BOX设置块元素位置*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优点：<br>1.响应式，自适应，可不固定<code>#a</code>, <code>#b</code>的高度<br>2.支持内容块重绘，支持resize:both</p>
+<h1 id="方法二：margin补偿法"><a href="#方法二：margin补偿法" class="headerlink" title="方法二：margin补偿法"></a>方法二：margin补偿法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#a &#123;</div><div class="line">    position: relative(absolute);</div><div class="line">&#125;</div><div class="line"></div><div class="line">#b &#123;</div><div class="line">    position:absolute;</div><div class="line">    left: 50%;</div><div class="line">    top:50%;</div><div class="line">    margin-left: -250px;  /*div#b宽度的一半*/</div><div class="line">    margin-top: -250px;  /*div#b高度的一半*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优点：<br>1.良好的跨浏览器特性，兼容IE6-IE7。<br>2.代码量少。</p>
+<p>缺点：<br>1.不能自适应。不支持百分比尺寸和min-/max-属性设置。</p>
+<ol>
+<li>内容可能溢出容器。</li>
+<li>边距大小与padding,和是否定义box-sizing: border-box有关，计算需要根据不同情况。</li>
+</ol>
+<h1 id="方法三：transform法"><a href="#方法三：transform法" class="headerlink" title="方法三：transform法"></a>方法三：transform法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#a &#123;</div><div class="line">    position: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#b &#123;</div><div class="line">    position:absolute;</div><div class="line">    left: 50%; /*向右偏移父容器的50%*/</div><div class="line">    top:50%; /*向下偏移父容器的50%*/</div><div class="line">    transform: translate(-50%,-50%); /*分别在x、y方向平移自身的50%*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优点：<br>1.内容可变高度<br>2.代码量少</p>
+<p>缺点：<br>1.IE8不支持<br>2.属性需要写浏览器厂商前缀<br>3.可能干扰其他transform效果<br>4.某些情形下会出现文本或元素边界渲染模糊的现象</p>
+<h1 id="方法四：table-cell法"><a href="#方法四：table-cell法" class="headerlink" title="方法四：table-cell法"></a>方法四：table-cell法</h1><p><em>html模板</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;a&quot;&gt;</div><div class="line">    &lt;div id=&quot;b&quot;&gt;</div><div class="line">        &lt;div id=&quot;c&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><em>css样式</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#a &#123;</div><div class="line">    height: 800px;</div><div class="line">    width: 800px;</div><div class="line">    background-color: #FF0000;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#c &#123;</div><div class="line">    height:500px;</div><div class="line">    width:500px;</div><div class="line">    background-color: #00FF00;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#a &#123;</div><div class="line">    display: table;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#b &#123;</div><div class="line">    display: table-cell;</div><div class="line">    vertical-align: middle;</div><div class="line">&#125;</div><div class="line">#c &#123;</div><div class="line">    margin:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优点：<br>1.高度可变<br>2.内容溢出会将父元素撑开。<br>3.跨浏览器兼容性好。</p>
+<p>缺点：<br>需要额外html标记</p>
+<h1 id="方法五：flexbox法"><a href="#方法五：flexbox法" class="headerlink" title="方法五：flexbox法"></a>方法五：flexbox法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#a &#123;</div><div class="line">    display: flex;</div><div class="line">    justify-content: center;</div><div class="line">    align-items: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优点：<br>1.内容块的宽高任意，优雅的溢出。<br>2.可用于更复杂高级的布局技术中。</p>
+<p>缺点：<br>1.IE8/IE9不支持。<br>2.Body需要特定的容器和CSS样式。<br>3.运行于现代浏览器上的代码需要浏览器厂商前缀。<br>4.表现上可能会有一些问题</p>
+<h1 id="方法六：文字在div中垂直居中"><a href="#方法六：文字在div中垂直居中" class="headerlink" title="方法六：文字在div中垂直居中"></a>方法六：文字在div中垂直居中</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span>womendeneirong<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"c"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#a &#123;</div><div class="line">    text-align: center;</div><div class="line">    border: solid 3px #000000;</div><div class="line">    width: 400px;</div><div class="line">    height: 200px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#b &#123;</div><div class="line">    vertical-align: middle;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#c &#123;</div><div class="line">    display: inline-block;</div><div class="line">    height: 100%;</div><div class="line">    vertical-align: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考文献<br><a href="http://blog.csdn.net/freshlover/article/details/11579669#" target="_blank" rel="external">盘点8种CSS实现垂直居中水平居中的绝对定位居中技术</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/12/CSS 外边距叠加/" rel="next" title="外边距叠加 Margin">
+                <i class="fa fa-chevron-left"></i> 外边距叠加 Margin
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/12/hash算法/" rel="prev" title="hash算法">
+                hash算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一：绝对定位法"><span class="nav-number">1.</span> <span class="nav-text">方法一：绝对定位法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二：margin补偿法"><span class="nav-number">2.</span> <span class="nav-text">方法二：margin补偿法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法三：transform法"><span class="nav-number">3.</span> <span class="nav-text">方法三：transform法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法四：table-cell法"><span class="nav-number">4.</span> <span class="nav-text">方法四：table-cell法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法五：flexbox法"><span class="nav-number">5.</span> <span class="nav-text">方法五：flexbox法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法六：文字在div中垂直居中"><span class="nav-number">6.</span> <span class="nav-text">方法六：文字在div中垂直居中</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

