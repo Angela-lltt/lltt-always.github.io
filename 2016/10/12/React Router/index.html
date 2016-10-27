@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/12/React Router/index.html">
 <meta property="og:site_name" content="Dora's Home">
 <meta property="og:description" content="简述React Router组件">
-<meta property="og:updated_time" content="2016-09-27T07:48:44.000Z">
+<meta property="og:updated_time" content="2016-10-27T02:35:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Router">
 <meta name="twitter:description" content="简述React Router组件">
@@ -340,33 +340,36 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//Javascript module import</div><div class="line">import &#123; browserHistory &#125; from &apos;react-router&apos;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">render(</div><div class="line">  &lt;Router history=&#123;browserHistory&#125; routes=&#123;routes&#125; /&gt;,</div><div class="line">  document.getElementById(&apos;app&apos;)</div><div class="line">)</div></pre></td></tr></table></figure>
 <h2 id="hashHistory"><a href="#hashHistory" class="headerlink" title="hashHistory"></a>hashHistory</h2><p>用url hash值和一个查询key来记录状态，因此地址栏的地址会有额外的垃圾 。hashHistory不需要额外的服务器配置，但是表现次于browserHistory。</p>
-<h2 id="createMemoryHistory"><a href="#createMemoryHistory" class="headerlink" title="createMemoryHistory"></a>createMemoryHistory</h2><pre><code>3. 在一个应用中，最常用的组件应该是&lt;link&gt;，它允许用户在应用中进行导航。它与&lt;a&gt;标签的唯一区别是它知道它的链接地址是否是活跃的。
-    1. to：位置描述，通常是一个字符串或者对象，其语义如下,
-        * 字符串：表示链接到的绝对地址（不支持相对地址）
-        * 对象：
-        * 
-            1. pathname：一个字符串，表示链接到的地址
-            2. query：待转换为字符串的key：value对象（弃用）
-            3. hash：放入URL的hash值（弃用）
-            4. state：保存location的状态（弃用）
-
-
-    2. activeClassName：当&lt;Link&gt;路由被激活的className，默认没有active class
-    3. activeStyle：当&lt;Link&gt;路由被激活的样式
-    4. onClick(e)：点击事件的句柄函数，调用e.stopPropagation()可以阻止事件冒泡，调用e.preventDefault()可以组织开火的传递？？
-    5. onlyActiveOnIndex：如果是true，当前路由和link路由匹配时被激活
-
-4. &lt;Route&gt;——配置组件。用来显式地映射路由到应用的组件层。
-    1. path：在URL中使用的path，它可以是相对父路由的地址，但若以&apos;/&apos;开头则表示绝对地址。如果未定义，路由器会匹配子路由。注：绝对地址不能用于动态加载的路由配置。
-    2. component：当路由与URL匹配时渲染的单一组件，它可以调用父路由组件的this.props.children属性来渲染
-    3. components：当路径与URL匹配时，路由可以定义一个或多个named组件为[name]: component对象来渲染，可以嗲用父组件的this.props[name]
-
-5. 导航&lt;Link&gt;封装：一般情况下不需要知道&lt;Link&gt;是否被激活，但是主导航链接需要知道自己是否被激活，以显示正确的样式。
-</code></pre><indexredirect> 
-
-<p>允许对父路由重定向到其他路由，它可以设置成一个表示父路由默认路由的子路由。</p>
+<h2 id="createMemoryHistory"><a href="#createMemoryHistory" class="headerlink" title="createMemoryHistory"></a>createMemoryHistory</h2><h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>在一个应用中，最常用的组件应该是<link>，它允许用户在应用中进行导航。它与<a>标签的唯一区别是它知道它的链接地址是否是活跃的。</a></p>
+<ol>
+<li>to：位置描述，通常是一个字符串或者对象，其语义如下,<ul>
+<li>字符串：表示链接到的绝对地址（不支持相对地址）</li>
+<li>对象：</li>
+<li><ol>
+<li>pathname：一个字符串，表示链接到的地址</li>
+<li>query：待转换为字符串的key：value对象（弃用）</li>
+<li>hash：放入URL的hash值（弃用）</li>
+<li>state：保存location的状态（弃用）</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>activeClassName：当<link>路由被激活的className，默认没有active class</li>
+<li>activeStyle：当<link>路由被激活的样式</li>
+<li>onClick(e)：点击事件的句柄函数，调用e.stopPropagation()可以阻止事件冒泡，调用e.preventDefault()可以组织开火的传递？？</li>
+<li>onlyActiveOnIndex：如果是true，当前路由和link路由匹配时被激活</li>
+</ol>
+<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><p><route>——配置组件。用来显式地映射路由到应用的组件层。</route></p>
+<ol>
+<li>path：在URL中使用的path，它可以是相对父路由的地址，但若以’/‘开头则表示绝对地址。如果未定义，路由器会匹配子路由。注：绝对地址不能用于动态加载的路由配置。</li>
+<li>component：当路由与URL匹配时渲染的单一组件，它可以调用父路由组件的this.props.children属性来渲染</li>
+<li>components：当路径与URL匹配时，路由可以定义一个或多个named组件为[name]: component对象来渲染，可以嗲用父组件的this.props[name]</li>
+</ol>
+<h2 id="IndexRedirect"><a href="#IndexRedirect" class="headerlink" title="IndexRedirect"></a>IndexRedirect</h2><p>允许对父路由重定向到其他路由，它可以设置成一个表示父路由默认路由的子路由。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;Router history=&#123; browserHistory &#125;&gt;</div><div class="line">    &lt;Route name=&quot;home&quot; path=&quot;/dockerkit/&quot; component=&#123; App &#125;&gt;</div><div class="line">        &lt;Route name=&quot;repo&quot; path=&quot;repo/&quot; component=&#123; RepoList &#125; /&gt;</div><div class="line">        &lt;Route name=&quot;testpage&quot; path=&quot;testpage/&quot; component=&#123; Test &#125; /&gt;</div><div class="line">        &lt;Route name=&quot;login&quot; path=&quot;login/&quot; component=&#123; LoginPage &#125; /&gt;</div><div class="line">        &lt;IndexRedirect from=&quot;*&quot; to=&quot;/dockerkit/repo/&quot; /&gt;</div><div class="line">    &lt;/Route&gt;            </div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure>
-</indexredirect>
+
       
     </div>
 
@@ -397,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/12/浏览器多线程机制/" rel="next" title="浏览器多线程机制">
-                <i class="fa fa-chevron-left"></i> 浏览器多线程机制
+              <a href="/2016/10/12/异步调用/" rel="next" title="异步调用">
+                <i class="fa fa-chevron-left"></i> 异步调用
               </a>
             
           </div>
@@ -475,7 +478,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -514,7 +517,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#History"><span class="nav-number">1.</span> <span class="nav-text">History</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#browserHistory"><span class="nav-number">1.1.</span> <span class="nav-text">browserHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashHistory"><span class="nav-number">1.2.</span> <span class="nav-text">hashHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createMemoryHistory"><span class="nav-number">1.3.</span> <span class="nav-text">createMemoryHistory</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#History"><span class="nav-number">1.</span> <span class="nav-text">History</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#browserHistory"><span class="nav-number">1.1.</span> <span class="nav-text">browserHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashHistory"><span class="nav-number">1.2.</span> <span class="nav-text">hashHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createMemoryHistory"><span class="nav-number">1.3.</span> <span class="nav-text">createMemoryHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link"><span class="nav-number">1.4.</span> <span class="nav-text">Link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Route"><span class="nav-number">1.5.</span> <span class="nav-text">Route</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexRedirect"><span class="nav-number">1.6.</span> <span class="nav-text">IndexRedirect</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

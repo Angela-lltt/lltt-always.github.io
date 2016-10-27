@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/12/进程、线程和协程/index.html">
 <meta property="og:site_name" content="Dora's Home">
 <meta property="og:description" content="进程、线程、协程的关系与区别">
-<meta property="og:updated_time" content="2016-08-15T07:04:24.000Z">
+<meta property="og:updated_time" content="2016-10-27T01:43:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程、线程和协程">
 <meta name="twitter:description" content="进程、线程、协程的关系与区别">
@@ -333,7 +333,7 @@
 <p>进程的定义:进程是正在运行的程序的实例，进程是内核分配资源的最基本的单元，而线程是内核执行的最基本的单元，进程内可以包含多个线程，只要记住这三个要点，就可以很清楚的理清进程和线程的行为模式。</p>
 <p>程序在运行的时候，是需要操作系统分配内存和其他硬件资源，所以将运行的程序抽象为进程，一开始操作系统只能执行单一进程，后来使用分时间片来运行多个进程产生了多任务系统。</p>
 <p>而线程的出现，是由于进程开销比较大，还有就是进程之间的资源隔离，导致数据沟通复杂。所以产生了线程。</p>
-<p>进程和进程之间是的资源都是相互隔离的，所以一个进程的崩溃不会影响到其他进程，但是由于线程是包含在进程之内的，现成的崩溃就会引发进程的崩溃，而在同一进程内的线程也会继而崩溃。</p>
+<p>进程和进程之间是的资源都是相互隔离的，所以一个进程的崩溃不会影响到其他进程，但是由于线程是包含在进程之内的，线程的崩溃就会引发进程的崩溃，而在同一进程内的线程也会继而崩溃。</p>
 <h2 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h2><p>在这里在多讲一些，并发和并行是得从物理硬件方面来考虑。在以前电脑是单核的时候，一个cup核心只能进行单个任务，将单个cup运行时间分配给多个任务运行，这就是并发，让你看起来像是多个任务同时执行，本质上还是一个任务一个任务的执行。</p>
 <p>而并行，是在多核cup电脑上，为每一个cup核心分配一个任务，是真正的多任务执行。</p>
 <h2 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h2><p>协程的话相当于语言自己实现一个函数调度，在一个函数运行时，中断函数，并且保存函数上下文，之后在运行其他函数，之后再返回运行原函数。</p>
@@ -446,7 +446,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
