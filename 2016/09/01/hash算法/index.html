@@ -1,0 +1,634 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0;hash&amp;#x7B97;&amp;#x6CD5;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x4E0E;&amp;#x7279;&amp;#x6027;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hash算法">
+<meta property="og:url" content="http://yoursite.com/2016/09/01/hash算法/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;hash&amp;#x7B97;&amp;#x6CD5;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x4E0E;&amp;#x7279;&amp;#x6027;">
+<meta property="og:updated_time" content="2016-09-01T01:56:15.719Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hash算法">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;hash&amp;#x7B97;&amp;#x6CD5;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x4E0E;&amp;#x7279;&amp;#x6027;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/01/hash算法/"/>
+
+  <title> hash算法 | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                hash算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T09:44:24+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x7B80;&#x8FF0;hash&#x7B97;&#x6CD5;&#x7684;&#x6982;&#x5FF5;&#x4E0E;&#x7279;&#x6027;</p>
+<a id="more"></a>
+<h1 id="&#x5B9A;&#x4E49;"><a href="#&#x5B9A;&#x4E49;" class="headerlink" title="&#x5B9A;&#x4E49;"></a>&#x5B9A;&#x4E49;</h1><p>hash&#x7B97;&#x6CD5;&#xFF1A;&#x5C06;&#x4EFB;&#x610F;&#x957F;&#x5EA6;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x503C;&#xFF08;&#x660E;&#x6587;&#xFF09;&#x6620;&#x5C04;&#x4E3A;&#x8F83;&#x77ED;&#x7684;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x503C;&#xFF08;hash&#x503C;&#xFF09;&#x3002;</p>
+<h1 id="&#x4F18;&#x79C0;hash&#x7B97;&#x6CD5;&#x7684;&#x7279;&#x6027;"><a href="#&#x4F18;&#x79C0;hash&#x7B97;&#x6CD5;&#x7684;&#x7279;&#x6027;" class="headerlink" title="&#x4F18;&#x79C0;hash&#x7B97;&#x6CD5;&#x7684;&#x7279;&#x6027;"></a>&#x4F18;&#x79C0;hash&#x7B97;&#x6CD5;&#x7684;&#x7279;&#x6027;</h1><ul>
+<li>&#x6B63;&#x5411;&#x5FEB;&#x901F;&#xFF1A;&#x7ED9;&#x5B9A;&#x660E;&#x6587;&#x548C;hash&#x7B97;&#x6CD5;&#xFF0C;&#x5728;&#x6709;&#x9650;&#x65F6;&#x95F4;&#x548C;&#x6709;&#x9650;&#x8D44;&#x6E90;&#x5185;&#x80FD;&#x8BA1;&#x7B97;&#x51FA;hash&#x503C;&#x3002;</li>
+<li>&#x9006;&#x5411;&#x56F0;&#x96BE;&#xFF1A;&#x7ED9;&#x5B9A;hash&#x503C;&#xFF0C;&#x5728;&#x6709;&#x9650;&#x65F6;&#x95F4;&#x5185;&#x57FA;&#x672C;&#x4E0D;&#x53EF;&#x80FD;&#x63A8;&#x51FA;&#x660E;&#x6587;&#x3002;</li>
+<li>&#x8F93;&#x5165;&#x654F;&#x611F;&#xFF1A;&#x539F;&#x59CB;&#x8F93;&#x5165;&#x4FE1;&#x606F;&#x4FEE;&#x6539;&#x4E00;&#x70B9;&#xFF0C;&#x4EA7;&#x751F;&#x7684;hash&#x6709;&#x5F88;&#x5927;&#x4E0D;&#x540C;</li>
+<li>&#x51B2;&#x7A81;&#x907F;&#x514D;&#xFF1A;&#x5F88;&#x96BE;&#x627E;&#x5230;hash&#x503C;&#x76F8;&#x540C;&#x7684;&#x4E24;&#x6BB5;&#x5185;&#x5BB9;&#x4E0D;&#x540C;&#x7684;&#x660E;&#x6587;&#x3002;</li>
+</ul>
+<h1 id="&#x6D41;&#x884C;&#x7B97;&#x6CD5;"><a href="#&#x6D41;&#x884C;&#x7B97;&#x6CD5;" class="headerlink" title="&#x6D41;&#x884C;&#x7B97;&#x6CD5;"></a>&#x6D41;&#x884C;&#x7B97;&#x6CD5;</h1><ul>
+<li><p>MD4</p>
+<p>&#x8F93;&#x51FA;&#x4E3A;128&#x4F4D;&#xFF1B;</p>
+</li>
+<li><p>MD5</p>
+<p>&#x6BD4;MD4&#x590D;&#x6742;&#xFF0C;&#x8BA1;&#x7B97;&#x901F;&#x5EA6;&#x7565;&#x6162;&#xFF0C;&#x4F46;&#x76F8;&#x5BF9;&#x5B89;&#x5168;&#xFF0C;&#x8F93;&#x51FA;&#x4E3A;128&#x4F4D;&#xFF1B;</p>
+</li>
+<li><p>SHA-1</p>
+<p>&#x8F93;&#x51FA;&#x4E3A;160&#x4F4D;&#xFF0C;&#x539F;&#x7406;&#x4E0E;MD4&#x76F8;&#x540C;</p>
+</li>
+<li><p>SHA-2</p>
+<p>&#x539F;&#x7406;&#x8DDF;SHA-1&#x7C7B;&#x4F3C;&#xFF0C;&#x5B89;&#x5168;&#x6027;&#x66F4;&#x9AD8;&#x3002;</p>
+</li>
+</ul>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h1><ul>
+<li><a href="https://yeasy.gitbooks.io/blockchain_guide/content/crypto/hash.html" target="_blank" rel="external">hash&#x7B97;&#x6CD5;&#x7B80;&#x4ECB;</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/31/JSON Web Token/" rel="next" title="JSON Web Token (JWT)">
+                <i class="fa fa-chevron-left"></i> JSON Web Token (JWT)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/01/React/" rel="prev" title="React">
+                React <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优秀hash算法的特性"><span class="nav-number">2.</span> <span class="nav-text">优秀hash算法的特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流行算法"><span class="nav-number">3.</span> <span class="nav-text">流行算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Command Line," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5E38;&amp;#x7528;bash&amp;#x6307;&amp;#x4EE4;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用指令">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/常用指令/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5E38;&amp;#x7528;bash&amp;#x6307;&amp;#x4EE4;">
+<meta property="og:updated_time" content="2016-12-15T03:23:09.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用指令">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5E38;&amp;#x7528;bash&amp;#x6307;&amp;#x4EE4;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/10/常用指令/"/>
+
+  <title> 常用指令 | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                常用指令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T11:00:48+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x7B80;&#x8FF0;&#x5E38;&#x7528;bash&#x6307;&#x4EE4;</p>
+<a id="more"></a>
+<ul>
+<li>nvm<ul>
+<li>nvm ls &#x67E5;&#x770B;&#x5DF2;&#x5B89;&#x88C5;&#x7248;&#x672C;</li>
+<li>nvm current &#x67E5;&#x770B;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7248;&#x672C;</li>
+<li>nvm use &#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7248;&#x672C;</li>
+</ul>
+</li>
+<li>gem&#x5B89;&#x88C5;&#x6307;&#x4EE4;<ul>
+<li>gem install sass &#x5B89;&#x88C5;sass</li>
+<li>gem install compass &#x5B89;&#x88C5;compass</li>
+</ul>
+</li>
+<li>mongodb <ul>
+<li>cd Mongodb\bin</li>
+<li>mongod.exe</li>
+</ul>
+</li>
+<li>npm<ul>
+<li>npm ls -g &#x67E5;&#x770B;&#x5168;&#x5C40;&#x5B89;&#x88C5;</li>
+<li>npm search express &#x5728;npm&#x6E90;&#x4E2D;&#x641C;&#x7D22;express&#x5305;</li>
+</ul>
+</li>
+<li>git<ul>
+<li><code>git push origin --delete &lt;branch name&gt;</code> &#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x5206;&#x652F;</li>
+<li><code>git push origin :&lt;branch name&gt;</code> &#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x5206;&#x652F;</li>
+<li><code>git checkout -- &lt;file&gt;</code> &#x64A4;&#x9500;&#x672A;add&#x8FC7;&#x7684;&#x672C;&#x5730;&#x4FEE;&#x6539;</li>
+<li><code>git reset --hard &lt;commit id&gt;</code> &#x56DE;&#x6EDA;&#x5230;commit id&#xFF0C;&#x5C06;commit id&#x4E4B;&#x540E;&#x7684;&#x63D0;&#x4EA4;&#x90FD;&#x53BB;&#x9664;</li>
+<li><code>git reset &lt;commit id&gt;</code> &#x56DE;&#x6EDA;&#x5230;commit id&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x63D0;&#x4EA4;&#x4FDD;&#x7559;&#x5728;&#x5DE5;&#x4F5C;&#x533A;</li>
+<li><code>git rebase &lt;upstream&gt; (&lt;branch&gt;)</code> &#x53D8;&#x57FA;&#xFF0C;&#x6BD4;&#x8F83;upstream&#x548C;branch&#x7684;&#x76F8;&#x540C;&#x63D0;&#x4EA4;&#xFF0C;&#x5C06;branch&#x7684;&#x57FA;&#x91CD;&#x8BBE;&#x4E3A;&#x6700;&#x8FD1;&#x76F8;&#x540C;&#x63D0;&#x4EA4;</li>
+<li><code>git cz</code> &#xFF08;&#x9700;&#x8981;&#x5B89;&#x88C5;&#xFF09;&#x6807;&#x51C6;&#x5316;git commit&#x65B9;&#x6848;</li>
+<li><code>git fetch -p</code> &#x5220;&#x9664;&#x672C;&#x5730;&#x4E0E;&#x8FDC;&#x7A0B;&#x4E0D;&#x5339;&#x914D;&#x7684;&#x8FDC;&#x7A0B;&#x8DDF;&#x8E2A;&#x5F15;&#x7528;</li>
+<li><code>git reset</code> &#x5C06;&#x6682;&#x5B58;&#x533A;&#x6587;&#x4EF6;&#x79FB;&#x56DE;&#x5DE5;&#x4F5C;&#x533A;&#xFF0C;&#x5373;&#x64A4;&#x9500;git add&#x64CD;&#x4F5C;</li>
+<li><code>git pull &lt;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#x540D;&gt; &lt;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;&gt;:&lt;&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;&gt;</code> &#x5C06;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x62C9;&#x53D6;&#x5230;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0A;</li>
+</ul>
+</li>
+<li><p>cmd&#x547D;&#x4EE4;&#x63D0;&#x793A;&#x7B26;</p>
+<ul>
+<li>netstat &#x2013;ano &#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x6240;&#x6709;&#x8FDB;&#x7A0B;</li>
+<li>nslookup <em>*</em>&#xFF08;&#x57DF;&#x540D;&#xFF09;&#x89E3;&#x6790;&#x57DF;&#x540D;&#x5BF9;&#x5E94;&#x7684;IP</li>
+</ul>
+</li>
+<li><p>bash</p>
+<ul>
+<li>ctrl + a &#x5149;&#x6807;&#x79FB;&#x5230;&#x884C;&#x9996;</li>
+<li>ctrl + e &#x5149;&#x6807;&#x79FB;&#x5230;&#x884C;&#x5C3E;</li>
+<li>ctrl + c &#x4E2D;&#x65AD;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;</li>
+<li>ctrl + d &#x9000;&#x51FA;&#x5F53;&#x524D;shell</li>
+<li>ctrl + k &#x6E05;&#x9664;&#x5149;&#x6807;&#x540E;&#x81F3;&#x884C;&#x5C3E;&#x5B57;&#x7B26;</li>
+<li>ctrl + l &#x6E05;&#x5C4F;</li>
+<li>ctrl + r &#x641C;&#x7D22;&#x4E4B;&#x524D;&#x6253;&#x8FC7;&#x7684;&#x547D;&#x4EE4;</li>
+<li>ctrl + u &#x6E05;&#x9664;&#x5149;&#x6807;&#x524D;&#x81F3;&#x884C;&#x9996;&#x7684;&#x6240;&#x6709;&#x5185;&#x5BB9;</li>
+<li>ctrl + w &#x79FB;&#x9664;&#x5149;&#x6807;&#x524D;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;</li>
+<li>esc + d &#x5220;&#x9664;&#x5149;&#x6807;&#x540E;&#x7684;&#x4E00;&#x4E2A;&#x8BCD;</li>
+<li>esc + b &#x5F80;&#x5DE6;&#x8DF3;&#x4E00;&#x4E2A;&#x8BCD;</li>
+<li>esc + f &#x5F80;&#x53F3;&#x8DF3;&#x4E00;&#x4E2A;&#x8BCD;</li>
+<li><p>esc + t &#x4EA4;&#x6362;&#x5149;&#x6807;&#x4F4D;&#x7F6E;&#x524D;&#x7684;&#x4E24;&#x4E2A;&#x5355;&#x8BCD;</p>
+</li>
+<li><p>su &#x5207;&#x6362;&#x7528;&#x6237;</p>
+</li>
+<li>tail -f error.log &#x67E5;&#x770B;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x5F53;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#x592A;&#x957F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;alias&#x547D;&#x4EE4;&#x4E3A;&#x8BE5;&#x547D;&#x4EE4;&#x8BBE;&#x7F6E;&#x522B;&#x540D;&#xFF0C;&#x7528;unalias&#x5220;&#x9664;&#x522B;&#x540D;</p>
+</blockquote>
+<ul>
+<li>alias lsall=&#x2019;ls -al&#x2019; &#x8BBE;&#x7F6E;&#x547D;&#x4EE4;ls -al&#x7684;&#x522B;&#x540D;&#x4E3A;lsall</li>
+<li>unalias lsall &#x5220;&#x9664;&#x522B;&#x540D;lsall</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Command-Line/" rel="tag">#Command Line</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/09/MITM/" rel="next" title="MITM中间人攻击">
+                <i class="fa fa-chevron-left"></i> MITM中间人攻击
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/10/CSS px & Device px/" rel="prev" title="CSS像素, 设备像素 and 参考像素">
+                CSS像素, 设备像素 and 参考像素 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

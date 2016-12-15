@@ -1,0 +1,651 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0;React Router&amp;#x7EC4;&amp;#x4EF6;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Router">
+<meta property="og:url" content="http://yoursite.com/2016/09/07/React Router/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;React Router&amp;#x7EC4;&amp;#x4EF6;">
+<meta property="og:updated_time" content="2016-12-15T03:23:09.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Router">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;React Router&amp;#x7EC4;&amp;#x4EF6;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/07/React Router/"/>
+
+  <title> React Router | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React Router
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T17:12:13+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x7B80;&#x8FF0;React Router&#x7EC4;&#x4EF6;</p>
+<a id="more"></a>
+<blockquote>
+<p>Router &#x662F;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x901A;&#x8FC7; render &#x51FD;&#x6570;&#x5F15;&#x5165;&#x6765;&#x4F7F;&#x7528;</p>
+</blockquote>
+<p><a href="https://github.com/reactjs/react-router/blob/master/docs/API.md#link" target="_blank" rel="external">React Router API</a><br><a href="https://github.com/reactjs/react-router-tutorial/tree/master/lessons" target="_blank" rel="external">React Router &#x6307;&#x5BFC;&#x6559;&#x7A0B;</a></p>
+<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p>React Router &#x662F;&#x5EFA;&#x7ACB;&#x5728; history &#x4E0A;&#x7684;&#x3002;&#x7B80;&#x5355;&#x7684;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;history&#x77E5;&#x9053;&#x5982;&#x4F55;&#x53BB;&#x76D1;&#x542C;&#x6D4F;&#x89C8;&#x5668;&#x5730;&#x5740;&#x680F;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5C06;&#x5730;&#x5740;&#x89E3;&#x6790;&#x4E3A;&#x8DEF;&#x7531;&#x5668;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5339;&#x914D;&#x8DEF;&#x7531;&#x7684;location&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x6E32;&#x67D3;&#x6B63;&#x786E;&#x7684;&#x7EC4;&#x4EF6;&#x3002;<br>&#x6709;&#x4E09;&#x79CD;&#x5E38;&#x89C1;&#x7684;history&#xFF0C;&#x4F7F;&#x7528;&#x4EFB;&#x610F;&#x4E00;&#x79CD;&#x90FD;&#x53EF;&#x4EE5;&#x4E3A;React Router&#x7684;&#x6D88;&#x8017;&#x81EA;&#x5B9A;&#x4E49;history&#x5DE5;&#x5177;&#x3002;</p>
+<h2 id="browserHistory"><a href="#browserHistory" class="headerlink" title="browserHistory"></a>browserHistory</h2><p>browserHistory &#x662F;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x5E94;&#x7528;&#x4E2D;&#x7684;React Router&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x7684;history&#xFF0C;&#x5B83;&#x4F7F;&#x7528;&#x5EFA;&#x7ACB;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684;history API&#x6765;&#x64CD;&#x4F5C;URL&#xFF0C;&#x521B;&#x5EFA;&#x771F;&#x5B9E;&#x7684;URL&#x5730;&#x5740;&#x3002;</p>
+<blockquote>
+<p>&#x4F7F;&#x7528;</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//Javascript module import</div><div class="line">import { browserHistory } from &apos;react-router&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">render(</div><div class="line">  &lt;Router history={browserHistory} routes={routes} /&gt;,</div><div class="line">  document.getElementById(&apos;app&apos;)</div><div class="line">)</div></pre></td></tr></table></figure>
+<h2 id="hashHistory"><a href="#hashHistory" class="headerlink" title="hashHistory"></a>hashHistory</h2><p>&#x7528;url hash&#x503C;&#x548C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;key&#x6765;&#x8BB0;&#x5F55;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#x5730;&#x5740;&#x680F;&#x7684;&#x5730;&#x5740;&#x4F1A;&#x6709;&#x989D;&#x5916;&#x7684;&#x5783;&#x573E; &#x3002;hashHistory&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;&#xFF0C;&#x4F46;&#x662F;&#x8868;&#x73B0;&#x6B21;&#x4E8E;browserHistory&#x3002;</p>
+<h2 id="createMemoryHistory"><a href="#createMemoryHistory" class="headerlink" title="createMemoryHistory"></a>createMemoryHistory</h2><h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>&#x5728;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x6700;&#x5E38;&#x7528;&#x7684;&#x7EC4;&#x4EF6;&#x5E94;&#x8BE5;&#x662F;<link>&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x8FDB;&#x884C;&#x5BFC;&#x822A;&#x3002;&#x5B83;&#x4E0E;<a>&#x6807;&#x7B7E;&#x7684;&#x552F;&#x4E00;&#x533A;&#x522B;&#x662F;&#x5B83;&#x77E5;&#x9053;&#x5B83;&#x7684;&#x94FE;&#x63A5;&#x5730;&#x5740;&#x662F;&#x5426;&#x662F;&#x6D3B;&#x8DC3;&#x7684;&#x3002;</a></p>
+<ol>
+<li>to&#xFF1A;&#x4F4D;&#x7F6E;&#x63CF;&#x8FF0;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x8BED;&#x4E49;&#x5982;&#x4E0B;,<ul>
+<li>&#x5B57;&#x7B26;&#x4E32;&#xFF1A;&#x8868;&#x793A;&#x94FE;&#x63A5;&#x5230;&#x7684;&#x7EDD;&#x5BF9;&#x5730;&#x5740;&#xFF08;&#x4E0D;&#x652F;&#x6301;&#x76F8;&#x5BF9;&#x5730;&#x5740;&#xFF09;</li>
+<li>&#x5BF9;&#x8C61;&#xFF1A;</li>
+<li><ol>
+<li>pathname&#xFF1A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8868;&#x793A;&#x94FE;&#x63A5;&#x5230;&#x7684;&#x5730;&#x5740;</li>
+<li>query&#xFF1A;&#x5F85;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;key&#xFF1A;value&#x5BF9;&#x8C61;&#xFF08;&#x5F03;&#x7528;&#xFF09;</li>
+<li>hash&#xFF1A;&#x653E;&#x5165;URL&#x7684;hash&#x503C;&#xFF08;&#x5F03;&#x7528;&#xFF09;</li>
+<li>state&#xFF1A;&#x4FDD;&#x5B58;location&#x7684;&#x72B6;&#x6001;&#xFF08;&#x5F03;&#x7528;&#xFF09;</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>activeClassName&#xFF1A;&#x5F53;<link>&#x8DEF;&#x7531;&#x88AB;&#x6FC0;&#x6D3B;&#x7684;className&#xFF0C;&#x9ED8;&#x8BA4;&#x6CA1;&#x6709;active class</li>
+<li>activeStyle&#xFF1A;&#x5F53;<link>&#x8DEF;&#x7531;&#x88AB;&#x6FC0;&#x6D3B;&#x7684;&#x6837;&#x5F0F;</li>
+<li>onClick(e)&#xFF1A;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7684;&#x53E5;&#x67C4;&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528;e.stopPropagation()&#x53EF;&#x4EE5;&#x963B;&#x6B62;&#x4E8B;&#x4EF6;&#x5192;&#x6CE1;&#xFF0C;&#x8C03;&#x7528;e.preventDefault()&#x53EF;&#x4EE5;&#x7EC4;&#x7EC7;&#x5F00;&#x706B;&#x7684;&#x4F20;&#x9012;&#xFF1F;&#xFF1F;</li>
+<li>onlyActiveOnIndex&#xFF1A;&#x5982;&#x679C;&#x662F;true&#xFF0C;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x548C;link&#x8DEF;&#x7531;&#x5339;&#x914D;&#x65F6;&#x88AB;&#x6FC0;&#x6D3B;</li>
+</ol>
+<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><p><route>&#x2014;&#x2014;&#x914D;&#x7F6E;&#x7EC4;&#x4EF6;&#x3002;&#x7528;&#x6765;&#x663E;&#x5F0F;&#x5730;&#x6620;&#x5C04;&#x8DEF;&#x7531;&#x5230;&#x5E94;&#x7528;&#x7684;&#x7EC4;&#x4EF6;&#x5C42;&#x3002;</route></p>
+<ol>
+<li>path&#xFF1A;&#x5728;URL&#x4E2D;&#x4F7F;&#x7528;&#x7684;path&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x662F;&#x76F8;&#x5BF9;&#x7236;&#x8DEF;&#x7531;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x4F46;&#x82E5;&#x4EE5;&#x2019;/&#x2018;&#x5F00;&#x5934;&#x5219;&#x8868;&#x793A;&#x7EDD;&#x5BF9;&#x5730;&#x5740;&#x3002;&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49;&#xFF0C;&#x8DEF;&#x7531;&#x5668;&#x4F1A;&#x5339;&#x914D;&#x5B50;&#x8DEF;&#x7531;&#x3002;&#x6CE8;&#xFF1A;&#x7EDD;&#x5BF9;&#x5730;&#x5740;&#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x3002;</li>
+<li>component&#xFF1A;&#x5F53;&#x8DEF;&#x7531;&#x4E0E;URL&#x5339;&#x914D;&#x65F6;&#x6E32;&#x67D3;&#x7684;&#x5355;&#x4E00;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x7236;&#x8DEF;&#x7531;&#x7EC4;&#x4EF6;&#x7684;this.props.children&#x5C5E;&#x6027;&#x6765;&#x6E32;&#x67D3;</li>
+<li>components&#xFF1A;&#x5F53;&#x8DEF;&#x5F84;&#x4E0E;URL&#x5339;&#x914D;&#x65F6;&#xFF0C;&#x8DEF;&#x7531;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;named&#x7EC4;&#x4EF6;&#x4E3A;[name]: component&#x5BF9;&#x8C61;&#x6765;&#x6E32;&#x67D3;&#xFF0C;&#x53EF;&#x4EE5;&#x55F2;&#x7528;&#x7236;&#x7EC4;&#x4EF6;&#x7684;this.props[name]</li>
+</ol>
+<h2 id="IndexRedirect"><a href="#IndexRedirect" class="headerlink" title="IndexRedirect"></a>IndexRedirect</h2><p>&#x5141;&#x8BB8;&#x5BF9;&#x7236;&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x5176;&#x4ED6;&#x8DEF;&#x7531;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6210;&#x4E00;&#x4E2A;&#x8868;&#x793A;&#x7236;&#x8DEF;&#x7531;&#x9ED8;&#x8BA4;&#x8DEF;&#x7531;&#x7684;&#x5B50;&#x8DEF;&#x7531;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;Router history={ browserHistory }&gt;</div><div class="line">    &lt;Route name=&quot;home&quot; path=&quot;/dockerkit/&quot; component={ App }&gt;</div><div class="line">        &lt;Route name=&quot;repo&quot; path=&quot;repo/&quot; component={ RepoList } /&gt;</div><div class="line">        &lt;Route name=&quot;testpage&quot; path=&quot;testpage/&quot; component={ Test } /&gt;</div><div class="line">        &lt;Route name=&quot;login&quot; path=&quot;login/&quot; component={ LoginPage } /&gt;</div><div class="line">        &lt;IndexRedirect from=&quot;*&quot; to=&quot;/dockerkit/repo/&quot; /&gt;</div><div class="line">    &lt;/Route&gt;            </div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/React/" rel="next" title="React">
+                <i class="fa fa-chevron-left"></i> React
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/12/CSS浏览器默认样式/" rel="prev" title="CSS浏览器默认样式">
+                CSS浏览器默认样式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#History"><span class="nav-number">1.</span> <span class="nav-text">History</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#browserHistory"><span class="nav-number">1.1.</span> <span class="nav-text">browserHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashHistory"><span class="nav-number">1.2.</span> <span class="nav-text">hashHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createMemoryHistory"><span class="nav-number">1.3.</span> <span class="nav-text">createMemoryHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link"><span class="nav-number">1.4.</span> <span class="nav-text">Link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Route"><span class="nav-number">1.5.</span> <span class="nav-text">Route</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexRedirect"><span class="nav-number">1.6.</span> <span class="nav-text">IndexRedirect</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

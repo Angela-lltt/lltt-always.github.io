@@ -1,0 +1,626 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x7F51;&amp;#x9875;&amp;#x81EA;&amp;#x9002;&amp;#x5E94;&amp;#x5B9E;&amp;#x73B0;&amp;#x65B9;&amp;#x6848;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自适应网页设计">
+<meta property="og:url" content="http://yoursite.com/2016/08/04/自适应网页设计/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x7F51;&amp;#x9875;&amp;#x81EA;&amp;#x9002;&amp;#x5E94;&amp;#x5B9E;&amp;#x73B0;&amp;#x65B9;&amp;#x6848;">
+<meta property="og:updated_time" content="2016-09-08T09:25:32.251Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自适应网页设计">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x7F51;&amp;#x9875;&amp;#x81EA;&amp;#x9002;&amp;#x5E94;&amp;#x5B9E;&amp;#x73B0;&amp;#x65B9;&amp;#x6848;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/04/自适应网页设计/"/>
+
+  <title> 自适应网页设计 | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                自适应网页设计
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-04T10:32:31+08:00" content="2016-08-04">
+              2016-08-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x7B80;&#x8FF0;&#x7F51;&#x9875;&#x81EA;&#x9002;&#x5E94;&#x5B9E;&#x73B0;&#x65B9;&#x6848;</p>
+<a id="more"></a>
+<h2 id="&#x7814;&#x7A76;&#x5982;&#x4F55;&#x4F7F;&#x7F51;&#x9875;&#x81EA;&#x9002;&#x5E94;&#x5404;&#x79CD;&#x53EF;&#x89C6;&#x5316;&#x754C;&#x9762;"><a href="#&#x7814;&#x7A76;&#x5982;&#x4F55;&#x4F7F;&#x7F51;&#x9875;&#x81EA;&#x9002;&#x5E94;&#x5404;&#x79CD;&#x53EF;&#x89C6;&#x5316;&#x754C;&#x9762;" class="headerlink" title="&#x7814;&#x7A76;&#x5982;&#x4F55;&#x4F7F;&#x7F51;&#x9875;&#x81EA;&#x9002;&#x5E94;&#x5404;&#x79CD;&#x53EF;&#x89C6;&#x5316;&#x754C;&#x9762;"></a>&#x7814;&#x7A76;&#x5982;&#x4F55;&#x4F7F;&#x7F51;&#x9875;&#x81EA;&#x9002;&#x5E94;&#x5404;&#x79CD;&#x53EF;&#x89C6;&#x5316;&#x754C;&#x9762;</h2><ul>
+<li><p>&#x5141;&#x8BB8;&#x7F51;&#x9875;&#x5BBD;&#x5EA6;&#x81EA;&#x52A8;&#x8C03;&#x6574;<br>gte IE9 viewport<br>lt IE9 css3-mediaqueries-js</p>
+</li>
+<li><p>&#x4E0D;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x5BBD;&#x5EA6;<br>CSS&#x4EE3;&#x7801;&#x4E0D;&#x80FD;&#x6307;&#x5B9A;&#x50CF;&#x7D20;&#x5BBD;&#xFF0C;&#x53EA;&#x80FD;&#x6307;&#x5B9A;&#x767E;&#x5206;&#x6BD4;&#x6216;&#x8005;auto</p>
+</li>
+<li><p>&#x5B57;&#x4F53;&#x5927;&#x5C0F;<br>&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x5355;&#x4F4D;em&#x6216;&#x8005;rem<br>1em = &#x5F53;&#x524D;&#x5B57;&#x4F53;&#x5C3A;&#x5BF8;<br>&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x6D4F;&#x89C8;&#x5668;&#x7FFB;&#x8BD1;&#x6210; &#x4ECE;16px&#x5230; 160px &#x6216;&#x5176;&#x4ED6;&#x4EFB;&#x610F;&#x503C;<br>&#x8BE6;&#x89C1;<a href="">px, em, rem&#x4E0E;&#x767E;&#x5206;&#x6BD4;</a></p>
+</li>
+<li><p>&#x6D41;&#x52A8;&#x5E03;&#x5C40;<br>&#x5404;&#x533A;&#x5757;&#x4F4D;&#x7F6E;&#x90FD;&#x662F;&#x6D6E;&#x52A8;&#x7684;<br>&#x5C0F;&#x5FC3;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D; position: absolute</p>
+</li>
+<li><p>&#x9009;&#x62E9;&#x52A0;&#x8F7D;CSS<br>&#x201C;&#x81EA;&#x9002;&#x5E94;&#x7F51;&#x9875;&#x8BBE;&#x8BA1;&#x201D;&#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x5C31;&#x662F;CSS3&#x5F15;&#x5165;&#x7684;Media Query&#x6A21;&#x5757;&#x3002;&#x5B83;&#x7684;&#x610F;&#x601D;&#x5C31;&#x662F;&#xFF0C;&#x81EA;&#x52A8;&#x63A2;&#x6D4B;&#x5C4F;&#x5E55;&#x5BBD;&#x5EA6;&#xFF0C;&#x7136;&#x540E;&#x52A0;&#x8F7D;&#x76F8;&#x5E94;&#x7684;CSS&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li><p>@media&#x89C4;&#x5219;<br>&#x5355;&#x4E00;CSS&#x6587;&#x4EF6;&#x4F7F;&#x7528;@media&#x6839;&#x636E;&#x4E0D;&#x540C;&#x5C4F;&#x5E55;&#x5206;&#x8FA8;&#x7387;&#x9009;&#x62E9;CSS&#x89C4;&#x5219;</p>
+</li>
+<li><p>&#x56FE;&#x7247;&#x7684;&#x81EA;&#x9002;&#x5E94;<br>&#x5B9E;&#x73B0;&#x56FE;&#x7247;&#x7684;&#x81EA;&#x52A8;&#x7F29;&#x653E;&#xFF1B;<br>&#x6839;&#x636E;&#x4E0D;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x5C4F;&#x5E55;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;&#x5206;&#x8FA8;&#x7387;&#x7684;&#x56FE;&#x7247;</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/02/CSS：模块居中/" rel="next" title="CSS使div居中">
+                <i class="fa fa-chevron-left"></i> CSS使div居中
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/04/px、em、rem与百分比/" rel="prev" title="px、em、rem与百分比">
+                px、em、rem与百分比 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#研究如何使网页自适应各种可视化界面"><span class="nav-number">1.</span> <span class="nav-text">研究如何使网页自适应各种可视化界面</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x4E94;&amp;#x79CD;&amp;#x4F7F; div &amp;#x5757;&amp;#x6C34;&amp;#x5E73;&amp;#x5782;&amp;#x76F4;&amp;#x5C45;&amp;#x4E2D;&amp;#x7684;CSS&amp;#x5B9E;&amp;#x73B0;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1B;&amp;#x6587;&amp;#x5B57;&amp;#x5728;div&amp;#x4E2D;&amp;#x5C45;&amp;#x4E2D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS使div居中">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/CSS：模块居中/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="&amp;#x4E94;&amp;#x79CD;&amp;#x4F7F; div &amp;#x5757;&amp;#x6C34;&amp;#x5E73;&amp;#x5782;&amp;#x76F4;&amp;#x5C45;&amp;#x4E2D;&amp;#x7684;CSS&amp;#x5B9E;&amp;#x73B0;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1B;&amp;#x6587;&amp;#x5B57;&amp;#x5728;div&amp;#x4E2D;&amp;#x5C45;&amp;#x4E2D;">
+<meta property="og:updated_time" content="2016-08-24T10:18:11.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS使div居中">
+<meta name="twitter:description" content="&amp;#x4E94;&amp;#x79CD;&amp;#x4F7F; div &amp;#x5757;&amp;#x6C34;&amp;#x5E73;&amp;#x5782;&amp;#x76F4;&amp;#x5C45;&amp;#x4E2D;&amp;#x7684;CSS&amp;#x5B9E;&amp;#x73B0;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1B;&amp;#x6587;&amp;#x5B57;&amp;#x5728;div&amp;#x4E2D;&amp;#x5C45;&amp;#x4E2D;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/02/CSS：模块居中/"/>
+
+  <title> CSS使div居中 | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS使div居中
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T17:21:59+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x4E94;&#x79CD;&#x4F7F; div &#x5757;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x7684;CSS&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#xFF1B;&#x6587;&#x5B57;&#x5728;div&#x4E2D;&#x5C45;&#x4E2D;</p>
+<a id="more"></a>
+<p><em>html&#x6A21;&#x677F;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;test.css&quot;&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;a&quot;&gt;</div><div class="line">        &lt;div id=&quot;b&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><em>CSS&#x6837;&#x5F0F;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#a {</div><div class="line">    width:800px;</div><div class="line">    height:800px;</div><div class="line">}</div><div class="line">#b {</div><div class="line">    width:500px;</div><div class="line">    height:500px</div><div class="line">}</div></pre></td></tr></table></figure>
+<h1 id="&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x6CD5;"><a href="#&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x6CD5;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x6CD5;"></a>&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x6CD5;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#a {</div><div class="line">    position: relative;</div><div class="line">}</div><div class="line"></div><div class="line">#b {</div><div class="line">    position:absolute; </div><div class="line">    /*#b &#x5BF9;&#x4E8E; #a &#x662F;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;*/</div><div class="line">    margin:auto; </div><div class="line">    /*&#x6D4F;&#x89C8;&#x5668;&#x8BA1;&#x7B97;margin&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x5DE6;&#x53F3;&#x7684;&#x5916;&#x8FB9;&#x8DDD;&#x7B49;&#x4E8E;&#x7236;&#x5BB9;&#x5668;&#x51CF;&#x53BB;&#x5B50;&#x5BB9;&#x5668;&#x5269;&#x4F59;&#x90E8;&#x5206;&#x7684;&#x5BBD;&#x5EA6;&#x5747;&#x5300;&#x5206;&#x914D;&#x7ED9;&#x5DE6;&#x53F3;*/</div><div class="line">    top: 0;left: 0;bottom: 0;right: 0; </div><div class="line">    /*top, left, bottom, right&#x4EE5;&#x5305;&#x542B;margin&#x7684;BOX&#x8BBE;&#x7F6E;&#x5757;&#x5143;&#x7D20;&#x4F4D;&#x7F6E;*/</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4F18;&#x70B9;&#xFF1A;<br>1.&#x54CD;&#x5E94;&#x5F0F;&#xFF0C;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x53EF;&#x4E0D;&#x56FA;&#x5B9A;<code>#a</code>, <code>#b</code>&#x7684;&#x9AD8;&#x5EA6;<br>2.&#x652F;&#x6301;&#x5185;&#x5BB9;&#x5757;&#x91CD;&#x7ED8;&#xFF0C;&#x652F;&#x6301;resize:both</p>
+<h1 id="&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;margin&#x8865;&#x507F;&#x6CD5;"><a href="#&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;margin&#x8865;&#x507F;&#x6CD5;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;margin&#x8865;&#x507F;&#x6CD5;"></a>&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;margin&#x8865;&#x507F;&#x6CD5;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#a {</div><div class="line">    position: relative(absolute);</div><div class="line">}</div><div class="line"></div><div class="line">#b {</div><div class="line">    position:absolute;</div><div class="line">    left: 50%;</div><div class="line">    top:50%;</div><div class="line">    margin-left: -250px;  /*div#b&#x5BBD;&#x5EA6;&#x7684;&#x4E00;&#x534A;*/</div><div class="line">    margin-top: -250px;  /*div#b&#x9AD8;&#x5EA6;&#x7684;&#x4E00;&#x534A;*/</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4F18;&#x70B9;&#xFF1A;<br>1.&#x826F;&#x597D;&#x7684;&#x8DE8;&#x6D4F;&#x89C8;&#x5668;&#x7279;&#x6027;&#xFF0C;&#x517C;&#x5BB9;IE6-IE7&#x3002;<br>2.&#x4EE3;&#x7801;&#x91CF;&#x5C11;&#x3002;</p>
+<p>&#x7F3A;&#x70B9;&#xFF1A;<br>1.&#x4E0D;&#x80FD;&#x81EA;&#x9002;&#x5E94;&#x3002;&#x4E0D;&#x652F;&#x6301;&#x767E;&#x5206;&#x6BD4;&#x5C3A;&#x5BF8;&#x548C;min-/max-&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x3002;</p>
+<ol>
+<li>&#x5185;&#x5BB9;&#x53EF;&#x80FD;&#x6EA2;&#x51FA;&#x5BB9;&#x5668;&#x3002;</li>
+<li>&#x8FB9;&#x8DDD;&#x5927;&#x5C0F;&#x4E0E;padding,&#x548C;&#x662F;&#x5426;&#x5B9A;&#x4E49;box-sizing: border-box&#x6709;&#x5173;&#xFF0C;&#x8BA1;&#x7B97;&#x9700;&#x8981;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x60C5;&#x51B5;&#x3002;</li>
+</ol>
+<h1 id="&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;transform&#x6CD5;"><a href="#&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;transform&#x6CD5;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;transform&#x6CD5;"></a>&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;transform&#x6CD5;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#a {</div><div class="line">    position: relative;</div><div class="line">}</div><div class="line"></div><div class="line">#b {</div><div class="line">    position:absolute;</div><div class="line">    left: 50%; /*&#x5411;&#x53F3;&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%*/</div><div class="line">    top:50%; /*&#x5411;&#x4E0B;&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%*/</div><div class="line">    transform: translate(-50%,-50%); /*&#x5206;&#x522B;&#x5728;x&#x3001;y&#x65B9;&#x5411;&#x5E73;&#x79FB;&#x81EA;&#x8EAB;&#x7684;50%*/</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4F18;&#x70B9;&#xFF1A;<br>1.&#x5185;&#x5BB9;&#x53EF;&#x53D8;&#x9AD8;&#x5EA6;<br>2.&#x4EE3;&#x7801;&#x91CF;&#x5C11;</p>
+<p>&#x7F3A;&#x70B9;&#xFF1A;<br>1.IE8&#x4E0D;&#x652F;&#x6301;<br>2.&#x5C5E;&#x6027;&#x9700;&#x8981;&#x5199;&#x6D4F;&#x89C8;&#x5668;&#x5382;&#x5546;&#x524D;&#x7F00;<br>3.&#x53EF;&#x80FD;&#x5E72;&#x6270;&#x5176;&#x4ED6;transform&#x6548;&#x679C;<br>4.&#x67D0;&#x4E9B;&#x60C5;&#x5F62;&#x4E0B;&#x4F1A;&#x51FA;&#x73B0;&#x6587;&#x672C;&#x6216;&#x5143;&#x7D20;&#x8FB9;&#x754C;&#x6E32;&#x67D3;&#x6A21;&#x7CCA;&#x7684;&#x73B0;&#x8C61;</p>
+<h1 id="&#x65B9;&#x6CD5;&#x56DB;&#xFF1A;table-cell&#x6CD5;"><a href="#&#x65B9;&#x6CD5;&#x56DB;&#xFF1A;table-cell&#x6CD5;" class="headerlink" title="&#x65B9;&#x6CD5;&#x56DB;&#xFF1A;table-cell&#x6CD5;"></a>&#x65B9;&#x6CD5;&#x56DB;&#xFF1A;table-cell&#x6CD5;</h1><p><em>html&#x6A21;&#x677F;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;a&quot;&gt;</div><div class="line">    &lt;div id=&quot;b&quot;&gt;</div><div class="line">        &lt;div id=&quot;c&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><em>css&#x6837;&#x5F0F;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#a {</div><div class="line">    height: 800px;</div><div class="line">    width: 800px;</div><div class="line">    background-color: #FF0000;</div><div class="line">}</div><div class="line"></div><div class="line">#c {</div><div class="line">    height:500px;</div><div class="line">    width:500px;</div><div class="line">    background-color: #00FF00;</div><div class="line">}</div><div class="line"></div><div class="line">#a {</div><div class="line">    display: table;</div><div class="line">}</div><div class="line"></div><div class="line">#b {</div><div class="line">    display: table-cell;</div><div class="line">    vertical-align: middle;</div><div class="line">}</div><div class="line">#c {</div><div class="line">    margin:auto;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4F18;&#x70B9;&#xFF1A;<br>1.&#x9AD8;&#x5EA6;&#x53EF;&#x53D8;<br>2.&#x5185;&#x5BB9;&#x6EA2;&#x51FA;&#x4F1A;&#x5C06;&#x7236;&#x5143;&#x7D20;&#x6491;&#x5F00;&#x3002;<br>3.&#x8DE8;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x597D;&#x3002;</p>
+<p>&#x7F3A;&#x70B9;&#xFF1A;<br>&#x9700;&#x8981;&#x989D;&#x5916;html&#x6807;&#x8BB0;</p>
+<h1 id="&#x65B9;&#x6CD5;&#x4E94;&#xFF1A;flexbox&#x6CD5;"><a href="#&#x65B9;&#x6CD5;&#x4E94;&#xFF1A;flexbox&#x6CD5;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E94;&#xFF1A;flexbox&#x6CD5;"></a>&#x65B9;&#x6CD5;&#x4E94;&#xFF1A;flexbox&#x6CD5;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#a {</div><div class="line">    display: flex;</div><div class="line">    justify-content: center;</div><div class="line">    align-items: center;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4F18;&#x70B9;&#xFF1A;<br>1.&#x5185;&#x5BB9;&#x5757;&#x7684;&#x5BBD;&#x9AD8;&#x4EFB;&#x610F;&#xFF0C;&#x4F18;&#x96C5;&#x7684;&#x6EA2;&#x51FA;&#x3002;<br>2.&#x53EF;&#x7528;&#x4E8E;&#x66F4;&#x590D;&#x6742;&#x9AD8;&#x7EA7;&#x7684;&#x5E03;&#x5C40;&#x6280;&#x672F;&#x4E2D;&#x3002;</p>
+<p>&#x7F3A;&#x70B9;&#xFF1A;<br>1.IE8/IE9&#x4E0D;&#x652F;&#x6301;&#x3002;<br>2.Body&#x9700;&#x8981;&#x7279;&#x5B9A;&#x7684;&#x5BB9;&#x5668;&#x548C;CSS&#x6837;&#x5F0F;&#x3002;<br>3.&#x8FD0;&#x884C;&#x4E8E;&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x7684;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x6D4F;&#x89C8;&#x5668;&#x5382;&#x5546;&#x524D;&#x7F00;&#x3002;<br>4.&#x8868;&#x73B0;&#x4E0A;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x4E00;&#x4E9B;&#x95EE;&#x9898;</p>
+<h1 id="&#x65B9;&#x6CD5;&#x516D;&#xFF1A;&#x6587;&#x5B57;&#x5728;div&#x4E2D;&#x5782;&#x76F4;&#x5C45;&#x4E2D;"><a href="#&#x65B9;&#x6CD5;&#x516D;&#xFF1A;&#x6587;&#x5B57;&#x5728;div&#x4E2D;&#x5782;&#x76F4;&#x5C45;&#x4E2D;" class="headerlink" title="&#x65B9;&#x6CD5;&#x516D;&#xFF1A;&#x6587;&#x5B57;&#x5728;div&#x4E2D;&#x5782;&#x76F4;&#x5C45;&#x4E2D;"></a>&#x65B9;&#x6CD5;&#x516D;&#xFF1A;&#x6587;&#x5B57;&#x5728;div&#x4E2D;&#x5782;&#x76F4;&#x5C45;&#x4E2D;</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span>womendeneirong<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#a {</div><div class="line">    text-align: center;</div><div class="line">    border: solid 3px #000000;</div><div class="line">    width: 400px;</div><div class="line">    height: 200px;</div><div class="line">}</div><div class="line"></div><div class="line">#b {</div><div class="line">    vertical-align: middle;</div><div class="line">}</div><div class="line"></div><div class="line">#c {</div><div class="line">    display: inline-block;</div><div class="line">    height: 100%;</div><div class="line">    vertical-align: middle;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x53C2;&#x8003;&#x6587;&#x732E;<br><a href="http://blog.csdn.net/freshlover/article/details/11579669#" target="_blank" rel="external">&#x76D8;&#x70B9;8&#x79CD;CSS&#x5B9E;&#x73B0;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x6C34;&#x5E73;&#x5C45;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x5C45;&#x4E2D;&#x6280;&#x672F;</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/02/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/04/自适应网页设计/" rel="prev" title="自适应网页设计">
+                自适应网页设计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一：绝对定位法"><span class="nav-number">1.</span> <span class="nav-text">方法一：绝对定位法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二：margin补偿法"><span class="nav-number">2.</span> <span class="nav-text">方法二：margin补偿法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法三：transform法"><span class="nav-number">3.</span> <span class="nav-text">方法三：transform法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法四：table-cell法"><span class="nav-number">4.</span> <span class="nav-text">方法四：table-cell法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法五：flexbox法"><span class="nav-number">5.</span> <span class="nav-text">方法五：flexbox法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法六：文字在div中垂直居中"><span class="nav-number">6.</span> <span class="nav-text">方法六：文字在div中垂直居中</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

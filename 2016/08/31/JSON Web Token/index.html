@@ -1,0 +1,623 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0; JSON Web Token">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON Web Token (JWT)">
+<meta property="og:url" content="http://yoursite.com/2016/08/31/JSON Web Token/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0; JSON Web Token">
+<meta property="og:updated_time" content="2016-09-01T05:13:01.445Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON Web Token (JWT)">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0; JSON Web Token">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/31/JSON Web Token/"/>
+
+  <title> JSON Web Token (JWT) | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JSON Web Token (JWT)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-31T16:21:01+08:00" content="2016-08-31">
+              2016-08-31
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x7B80;&#x8FF0; JSON Web Token</p>
+<a id="more"></a>
+<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>JWT &#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E; token &#x7684;&#x8BA4;&#x8BC1;&#x65B9;&#x6848;&#xFF0C;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x4F7F;&#x7528;JWT&#x5728;&#x7528;&#x6237;&#x548C;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x4F20;&#x9012;&#x5B89;&#x5168;&#x53EF;&#x9760;&#x7684;&#x4FE1;&#x606F;&#x3002;<br>&#x4E00;&#x4E2A; JWT token &#x770B;&#x8D77;&#x6765;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<p><code>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImNoZXhpYW5nIn0.VIeJERHwnB7_YL5iF0umrRu-EeYvrdD521rjYv4NKy4</code></p>
+<p>&#x5B83;&#x7684;&#x7ED3;&#x6784;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x4E3A;&#xFF1A;<br><code>base64url_encode(Header) + &apos;.&apos; + base64url_encode(Claims) + &apos;.&apos; + base64url_encode(Signature)</code></p>
+<h1 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h1><p>&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x81F3;&#x5C11;&#x8868;&#x660E; token &#x7C7B;&#x578B;&#x548C;&#x7B7E;&#x540D;&#x65B9;&#x6CD5;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    &quot;type&quot;: &quot;jwt&quot;, //token &#x7C7B;&#x578B;&#x4E3A; JSON Web Token</div><div class="line">    &quot;alg&quot;: &quot;HS256&quot; //token &#x6240;&#x4F7F;&#x7528;&#x7684;&#x7B7E;&#x540D;&#x7B97;&#x6CD5;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h1 id="Claims-Payload"><a href="#Claims-Payload" class="headerlink" title="Claims(Payload)"></a>Claims(Payload)</h1><p>&#x5B58;&#x653E;<a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32" target="_blank" rel="external">JWT &#x6807;&#x51C6;</a>&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;JSON&#x517C;&#x5BB9;&#x7684;&#x5B57;&#x6BB5;&#x3002;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    &quot;iss&quot;: &quot;John Wu JWT&quot;, //JWT&#x53D1;&#x5E03;&#x7684;&#x59D4;&#x6258;&#x4EBA;</div><div class="line">    &quot;iat&quot;: 1441593502, //JWT&#x7B7E;&#x53D1;&#x65F6;&#x95F4;</div><div class="line">    &quot;exp&quot;: 1441594722, //JWT&#x8FC7;&#x671F;&#x65F6;&#x95F4;</div><div class="line">    &quot;aud&quot;: &quot;www.example.com&quot;, //JWT&#x7684;&#x5236;&#x5B9A;&#x5BF9;&#x8C61;</div><div class="line">    &quot;sub&quot;: &quot;jrocket@example.com&quot;, //&#x4F5C;&#x4E3A;JWT&#x4E3B;&#x4F53;&#x7684;&#x59D4;&#x6258;&#x4EBA;</div><div class="line">    &quot;jti&quot;: , //&#x9488;&#x5BF9;&#x5F53;&#x524D;token&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;</div><div class="line">    &quot;nbf&quot;: , //&#x4E0D;&#x80FD;&#x5728;&#x8BE5;&#x65F6;&#x95F4;&#x8282;&#x70B9;&#x524D;&#x63A5;&#x53D7;&#x5904;&#x7406;JWT</div><div class="line">    &quot;from_user&quot;: &quot;B&quot;,  //&#x5176;&#x4ED6;&#x5B57;&#x6BB5;</div><div class="line">    &quot;target_user&quot;: &quot;A&quot; //&#x5176;&#x4ED6;&#x5B57;&#x6BB5;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h1 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h1><p>JWT &#x6807;&#x51C6;&#x9075;&#x7167; <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#ref-JWS" target="_blank" rel="external">JWS&#x6807;&#x51C6;</a>&#x6765;&#x751F;&#x6210;&#x7B7E;&#x540D;&#xFF0C;&#x7B7E;&#x540D;&#x4E3B;&#x8981;&#x7528;&#x4E8E;token&#x662F;&#x5426;&#x6709;&#x6548;&#xFF0C;&#x662F;&#x5426;&#x88AB;&#x7BE1;&#x6539;&#x3002;<a href="https://tools.ietf.org/html/rfc7518#section-3.1" target="_blank" rel="external">&#x7B7E;&#x540D;&#x7B97;&#x6CD5;</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">content = base64url_encode(Header) + &apos;.&apos; + base64url_encode(Claims)</div><div class="line">signature = hmacsha256.hash(content)</div></pre></td></tr></table></figure>
+<p><strong>&#x8BF4;&#x5230;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x70B9;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;JWT &#x4E2D;&#x4FE1;&#x606F;&#x90FD;&#x662F;&#x660E;&#x6587;&#x7684;&#xFF0C;&#x5373; Claims &#x7684;&#x5185;&#x5BB9;&#x5E76;&#x6CA1;&#x6709; &#x88AB;&#x52A0;&#x5BC6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; base64url_decode(text) &#x7684;&#x65B9;&#x5F0F;&#x89E3;&#x7801;&#x5F97;&#x5230; Claims &#x3002; &#x6240;&#x4EE5;&#xFF0C;&#x4E0D;&#x8981;&#x5728; Claims &#x91CC;&#x5305;&#x542B;&#x654F;&#x611F;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x5305;&#x542B;&#x654F;&#x611F;&#x4FE1;&#x606F;&#x7684;&#x8BDD;&#xFF0C;&#x8BB0;&#x5F97;&#x5148;&#x5C06; Claims &#x7684;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#xFF08;&#x6BD4;&#x5982;&#xFF0C;&#x4F7F;&#x7528; JSON Web Encryption (JWE) &#x6807;&#x51C6;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#xFF09; &#x7136;&#x540E;&#x5728;&#x8FDB;&#x884C; base64url_encode &#x64CD;&#x4F5C;&#x3002;</strong></p>
+<h1 id="&#x53C2;&#x8003;&#x6587;&#x4EF6;"><a href="#&#x53C2;&#x8003;&#x6587;&#x4EF6;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x4EF6;"></a>&#x53C2;&#x8003;&#x6587;&#x4EF6;</h1><ul>
+<li><a href=""></a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/24/Decorator/" rel="next" title="ES7 Decorator">
+                <i class="fa fa-chevron-left"></i> ES7 Decorator
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/01/hash算法/" rel="prev" title="hash算法">
+                hash算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JWT"><span class="nav-number">1.</span> <span class="nav-text">JWT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Header"><span class="nav-number">2.</span> <span class="nav-text">Header</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Claims-Payload"><span class="nav-number">3.</span> <span class="nav-text">Claims(Payload)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Signature"><span class="nav-number">4.</span> <span class="nav-text">Signature</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文件"><span class="nav-number">5.</span> <span class="nav-text">参考文件</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTTP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x8BE6;&amp;#x8FF0;&amp;#x5E38;&amp;#x89C1; HTTP Status Code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见 HTTP Status Code">
+<meta property="og:url" content="http://yoursite.com/2016/08/17/常见status/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="&amp;#x8BE6;&amp;#x8FF0;&amp;#x5E38;&amp;#x89C1; HTTP Status Code">
+<meta property="og:updated_time" content="2016-08-25T06:28:55.166Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见 HTTP Status Code">
+<meta name="twitter:description" content="&amp;#x8BE6;&amp;#x8FF0;&amp;#x5E38;&amp;#x89C1; HTTP Status Code">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/17/常见status/"/>
+
+  <title> 常见 HTTP Status Code | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                常见 HTTP Status Code
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-17T20:02:36+08:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x8BE6;&#x8FF0;&#x5E38;&#x89C1; HTTP Status Code</p>
+<a id="more"></a>
+<h1 id="HTTP-Status-Code"><a href="#HTTP-Status-Code" class="headerlink" title="HTTP Status Code"></a>HTTP Status Code</h1><p>&#x662F;&#x7528;&#x4EE5;&#x8868;&#x793A;&#x7F51;&#x9875;&#x670D;&#x52A1;&#x5668;HTTP&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7684;3&#x4F4D;&#x6570;&#x5B57;&#x4EE3;&#x7801;&#x3002;&#x5B83;&#x7531; RFC 2616 &#x89C4;&#x8303;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x5E76;&#x5F97;&#x5230; RFC 2518&#x3001;RFC 2817&#x3001;RFC 2295&#x3001;RFC 2774 &#x4E0E; RFC 4918 &#x7B49;&#x89C4;&#x8303;&#x6269;&#x5C55;&#x3002;</p>
+<h1 id="&#x5E38;&#x89C1;status"><a href="#&#x5E38;&#x89C1;status" class="headerlink" title="&#x5E38;&#x89C1;status"></a>&#x5E38;&#x89C1;status</h1><ul>
+<li>100-199 &#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x76F8;&#x5E94;&#x7684;&#x67D0;&#x4E9B;&#x52A8;&#x4F5C;&#x3002; </li>
+<li>200-299 &#x7528;&#x4E8E;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x6210;&#x529F;&#x3002; </li>
+<li>300-399 &#x8868;&#x793A;&#x8981;&#x5B8C;&#x6210;&#x8BF7;&#x6C42;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x64CD;&#x4F5C;&#xFF08;&#x91CD;&#x5B9A;&#x5411;&#xFF09;&#x3002; </li>
+<li>400-499 &#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x95EE;&#x9898;</li>
+<li>500-599 &#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;&#x3002;</li>
+</ul>
+<h1 id="HTTP-Status-1xx-&#x4E34;&#x65F6;&#x54CD;&#x5E94;"><a href="#HTTP-Status-1xx-&#x4E34;&#x65F6;&#x54CD;&#x5E94;" class="headerlink" title="HTTP: Status 1xx(&#x4E34;&#x65F6;&#x54CD;&#x5E94;)"></a>HTTP: Status 1xx(&#x4E34;&#x65F6;&#x54CD;&#x5E94;)</h1><blockquote>
+<p>&#x8FD9;&#x4E00;&#x7C7B;&#x578B;&#x7684;&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x4EE3;&#x8868;&#x8BF7;&#x6C42;&#x5DF2;&#x88AB;&#x63A5;&#x53D7;&#xFF0C;&#x9700;&#x8981;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#x3002;&#x8FD9;&#x7C7B;&#x54CD;&#x5E94;&#x662F;&#x4E34;&#x65F6;&#x54CD;&#x5E94;&#xFF0C;&#x53EA;&#x5305;&#x542B;&#x72B6;&#x6001;&#x884C;&#x548C;&#x67D0;&#x4E9B;&#x53EF;&#x9009;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x4EE5;&#x7A7A;&#x884C;&#x7ED3;&#x675F;&#x3002;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x7801;&#x4EE3;&#x8868;&#x7684;&#x54CD;&#x5E94;&#x90FD;&#x662F;&#x4FE1;&#x606F;&#x6027;&#x7684;&#xFF0C;&#x6807;&#x793A;&#x9700;&#x8981;&#x8BF7;&#x6C42;&#x8005;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
+</blockquote>
+<ul>
+<li><p>100  Continue&#xFF08;&#x7EE7;&#x7EED;&#xFF09; </p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x5F53;&#x7EE7;&#x7EED;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x3002;&#x8FD9;&#x4E2A;&#x4E34;&#x65F6;&#x54CD;&#x5E94;&#x662F;&#x7528;&#x6765;&#x901A;&#x77E5;&#x5BA2;&#x6237;&#x7AEF;&#x5B83;&#x7684;&#x90E8;&#x5206;&#x8BF7;&#x6C42;&#x5DF2;&#x7ECF;&#x88AB;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#xFF0C;&#x4E14;&#x4ECD;&#x672A;&#x88AB;&#x62D2;&#x7EDD;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x5F53;&#x7EE7;&#x7EED;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x7684;&#x5269;&#x4F59;&#x90E8;&#x5206;&#xFF0C;&#x6216;&#x8005;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C;&#x5FFD;&#x7565;&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x3002;&#x670D;&#x52A1;&#x5668;&#x5FC5;&#x987B;&#x5728;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x540E;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x6700;&#x7EC8;&#x54CD;&#x5E94;&#x3002;</p>
+</li>
+<li><p>101 Switching Protocols&#xFF08;&#x5207;&#x6362;&#x534F;&#x8BAE;&#xFF09; </p>
+<p>&#x670D;&#x52A1;&#x5668;&#x5DF2;&#x7ECF;&#x7406;&#x89E3;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x5C06;&#x901A;&#x8FC7;Upgrade&#x6D88;&#x606F;&#x5934;&#x901A;&#x77E5;&#x5BA2;&#x6237;&#x7AEF;&#x91C7;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x534F;&#x8BAE;&#x6765;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x3002;&#x5728;&#x53D1;&#x9001;&#x5B8C;&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x6700;&#x540E;&#x7684;&#x7A7A;&#x884C;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x4F1A;&#x5207;&#x6362;&#x5230;&#x5728;Upgrade&#x6D88;&#x606F;&#x5934;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x90A3;&#x4E9B;&#x534F;&#x8BAE;&#x3002;&#x53EA;&#x6709;&#x5728;&#x5207;&#x6362;&#x65B0;&#x7684;&#x534F;&#x8BAE;&#x66F4;&#x6709;&#x597D;&#x5904;&#x7684;&#x65F6;&#x5019;&#x624D;&#x5E94;&#x8BE5;&#x91C7;&#x53D6;&#x7C7B;&#x4F3C;&#x63AA;&#x65BD;&#x3002;</p>
+</li>
+</ul>
+<h1 id="HTTP-Status-2xx-&#x6210;&#x529F;"><a href="#HTTP-Status-2xx-&#x6210;&#x529F;" class="headerlink" title="HTTP: Status 2xx(&#x6210;&#x529F;)"></a>HTTP: Status 2xx(&#x6210;&#x529F;)</h1><blockquote>
+<p>&#x8FD9;&#x4E00;&#x7C7B;&#x578B;&#x7684;&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x4EE3;&#x8868;&#x8BF7;&#x6C42;&#x5DF2;&#x6210;&#x529F;&#x88AB;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x3001;&#x7406;&#x89E3;&#x3001;&#x5E76;&#x63A5;&#x53D7;&#x3002;</p>
+</blockquote>
+<ul>
+<li><p>200 OK&#xFF08;&#x6210;&#x529F;&#xFF09;</p>
+<p>&#x8BF7;&#x6C42;&#x5DF2;&#x6210;&#x529F;&#xFF0C;&#x8BF7;&#x6C42;&#x6240;&#x5E0C;&#x671B;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x6216;&#x6570;&#x636E;&#x4F53;&#x5C06;&#x968F;&#x6B64;&#x54CD;&#x5E94;&#x8FD4;&#x56DE;&#x3002;</p>
+</li>
+<li><p>201 Created&#xFF08;&#x5DF2;&#x521B;&#x5EFA;&#xFF09;</p>
+<p>&#x8BF7;&#x6C42;&#x5DF2;&#x7ECF;&#x88AB;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x4E14;&#x6709;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8D44;&#x6E90;&#x5DF2;&#x7ECF;&#x4F9D;&#x636E;&#x8BF7;&#x6C42;&#x7684;&#x9700;&#x8981;&#x800C;&#x521B;&#x5EFA;&#xFF0C;&#x4E14;&#x5176;URI&#x5DF2;&#x7ECF;&#x968F;Location&#x5934;&#x4FE1;&#x606F;&#x8FD4;&#x56DE;&#x3002;</p>
+</li>
+<li><p>202 Accepted&#xFF08;&#x5DF2;&#x63A5;&#x53D7;&#xFF09;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x5DF2;&#x63A5;&#x53D7;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x5C1A;&#x672A;&#x5904;&#x7406;&#x3002;&#x6B63;&#x5982;&#x5B83;&#x53EF;&#x80FD;&#x88AB;&#x62D2;&#x7EDD;&#x4E00;&#x6837;&#xFF0C;&#x6700;&#x7EC8;&#x8BE5;&#x8BF7;&#x6C42;&#x53EF;&#x80FD;&#x4F1A;&#x4E5F;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x3002;&#x5728;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x573A;&#x5408;&#x4E0B;&#xFF0C;&#x6CA1;&#x6709;&#x6BD4;&#x53D1;&#x9001;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x7801;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x505A;&#x6CD5;&#x4E86;&#x3002;&#x8FD4;&#x56DE;202&#x72B6;&#x6001;&#x7801;&#x7684;&#x54CD;&#x5E94;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5141;&#x8BB8;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x53D7;&#x5176;&#x4ED6;&#x8FC7;&#x7A0B;&#x7684;&#x8BF7;&#x6C42;&#xFF08;&#x4F8B;&#x5982;&#x67D0;&#x4E2A;&#x6BCF;&#x5929;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x7684;&#x57FA;&#x4E8E;&#x6279;&#x5904;&#x7406;&#x7684;&#x64CD;&#x4F5C;&#xFF09;&#xFF0C;&#x800C;&#x4E0D;&#x5FC5;&#x8BA9;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#x76F4;&#x5230;&#x6279;&#x5904;&#x7406;&#x64CD;&#x4F5C;&#x5168;&#x90E8;&#x5B8C;&#x6210;&#x3002;</p>
+</li>
+<li><p>203 Non-Authoritative Information&#xFF08;&#x975E;&#x6388;&#x6743;&#x4FE1;&#x606F;&#xFF09;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x5DF2;&#x6210;&#x529F;&#x5904;&#x7406;&#x4E86;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x8FD4;&#x56DE;&#x7684;&#x5B9E;&#x4F53;&#x5934;&#x90E8;&#x5143;&#x4FE1;&#x606F;&#x4E0D;&#x662F;&#x5728;&#x539F;&#x59CB;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x6709;&#x6548;&#x7684;&#x786E;&#x5B9A;&#x96C6;&#x5408;&#xFF0C;&#x800C;&#x662F;&#x6765;&#x81EA;&#x672C;&#x5730;&#x6216;&#x8005;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x62F7;&#x8D1D;&#x3002;&#x5F53;&#x524D;&#x7684;&#x4FE1;&#x606F;&#x53EF;&#x80FD;&#x662F;&#x539F;&#x59CB;&#x7248;&#x672C;&#x7684;&#x5B50;&#x96C6;&#x6216;&#x8005;&#x8D85;&#x96C6;&#x3002;&#x4F7F;&#x7528;&#x6B64;&#x72B6;&#x6001;&#x7801;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x6709;&#x5728;&#x54CD;&#x5E94;&#x4E0D;&#x4F7F;&#x7528;&#x6B64;&#x72B6;&#x6001;&#x7801;&#x4FBF;&#x4F1A;&#x8FD4;&#x56DE;200 OK&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x662F;&#x5408;&#x9002;&#x7684;&#x3002;</p>
+</li>
+<li><p>204 No Content&#xFF08;&#x65E0;&#x5185;&#x5BB9;&#xFF09;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x6210;&#x529F;&#x5904;&#x7406;&#x4E86;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x4E0D;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x5B9E;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x5E76;&#x4E14;&#x5E0C;&#x671B;&#x8FD4;&#x56DE;&#x66F4;&#x65B0;&#x4E86;&#x7684;&#x5143;&#x4FE1;&#x606F;&#x3002;&#x54CD;&#x5E94;&#x53EF;&#x80FD;&#x901A;&#x8FC7;&#x5B9E;&#x4F53;&#x5934;&#x90E8;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x6216;&#x66F4;&#x65B0;&#x540E;&#x7684;&#x5143;&#x4FE1;&#x606F;&#x3002;&#x5982;&#x679C;&#x5B58;&#x5728;&#x8FD9;&#x4E9B;&#x5934;&#x90E8;&#x4FE1;&#x606F;&#xFF0C;&#x5219;&#x5E94;&#x5F53;&#x4E0E;&#x6240;&#x8BF7;&#x6C42;&#x7684;&#x53D8;&#x91CF;&#x76F8;&#x547C;&#x5E94;&#x3002;</p>
+</li>
+<li><p>205 Reset Content&#xFF08;&#x91CD;&#x7F6E;&#x5185;&#x5BB9;&#xFF09;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x6210;&#x529F;&#x5904;&#x7406;&#x4E86;&#x8BF7;&#x6C42;&#xFF0C;&#x4E14;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x3002;&#x4F46;&#x662F;&#x4E0E;204&#x54CD;&#x5E94;&#x4E0D;&#x540C;&#xFF0C;&#x8FD4;&#x56DE;&#x6B64;&#x72B6;&#x6001;&#x7801;&#x7684;&#x54CD;&#x5E94;&#x8981;&#x6C42;&#x8BF7;&#x6C42;&#x8005;&#x91CD;&#x7F6E;&#x6587;&#x6863;&#x89C6;&#x56FE;&#x3002;&#x8BE5;&#x54CD;&#x5E94;&#x4E3B;&#x8981;&#x662F;&#x88AB;&#x7528;&#x4E8E;&#x63A5;&#x53D7;&#x7528;&#x6237;&#x8F93;&#x5165;&#x540E;&#xFF0C;&#x7ACB;&#x5373;&#x91CD;&#x7F6E;&#x8868;&#x5355;&#xFF0C;&#x4EE5;&#x4FBF;&#x7528;&#x6237;&#x80FD;&#x591F;&#x8F7B;&#x677E;&#x5730;&#x5F00;&#x59CB;&#x53E6;&#x4E00;&#x6B21;&#x8F93;&#x5165;&#x3002;</p>
+</li>
+<li><p>206 Partial Content&#xFF08;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#xFF09;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x5904;&#x7406;&#x4E86;&#x90E8;&#x5206;GET&#x8BF7;&#x6C42;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E;FlashGet&#x6216;&#x8005;&#x8FC5;&#x96F7;&#x8FD9;&#x7C7B;&#x7684;HTTP &#x4E0B;&#x8F7D;&#x5DE5;&#x5177;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x6B64;&#x7C7B;&#x54CD;&#x5E94;&#x5B9E;&#x73B0;&#x65AD;&#x70B9;&#x7EED;&#x4F20;&#x6216;&#x8005;&#x5C06;&#x4E00;&#x4E2A;&#x5927;&#x6587;&#x6863;&#x5206;&#x89E3;&#x4E3A;&#x591A;&#x4E2A;&#x4E0B;&#x8F7D;&#x6BB5;&#x540C;&#x65F6;&#x4E0B;&#x8F7D;&#x3002;</p>
+</li>
+</ul>
+<h1 id="HTTP-Status-3xx-&#x91CD;&#x5B9A;&#x5411;"><a href="#HTTP-Status-3xx-&#x91CD;&#x5B9A;&#x5411;" class="headerlink" title="HTTP: Status 3xx(&#x91CD;&#x5B9A;&#x5411;)"></a>HTTP: Status 3xx(&#x91CD;&#x5B9A;&#x5411;)</h1><blockquote>
+<p>&#x8FD9;&#x7C7B;&#x72B6;&#x6001;&#x7801;&#x4EE3;&#x8868;&#x9700;&#x8981;&#x5BA2;&#x6237;&#x7AEF;&#x91C7;&#x53D6;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x64CD;&#x4F5C;&#x624D;&#x80FD;&#x5B8C;&#x6210;&#x8BF7;&#x6C42;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x7801;&#x7528;&#x6765;&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x8BF7;&#x6C42;&#x5730;&#x5740;&#xFF08;&#x91CD;&#x5B9A;&#x5411;&#x76EE;&#x6807;&#xFF09;&#x5728;&#x672C;&#x6B21;&#x54CD;&#x5E94;&#x7684;Location&#x57DF;&#x4E2D;&#x6307;&#x660E;&#x3002;</p>
+</blockquote>
+<ul>
+<li><p>300 Multiple Choices&#xFF08;&#x591A;&#x79CD;&#x9009;&#x62E9;&#xFF09;</p>
+<p>&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x53EF;&#x4F9B;&#x9009;&#x62E9;&#x7684;&#x56DE;&#x9988;&#x4FE1;&#x606F;&#xFF0C;&#x6BCF;&#x4E2A;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7279;&#x5B9A;&#x7684;&#x5730;&#x5740;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x9A71;&#x52A8;&#x7684;&#x5546;&#x8BAE;&#x4FE1;&#x606F;&#x3002;&#x7528;&#x6237;&#x6216;&#x6D4F;&#x89C8;&#x5668;&#x80FD;&#x591F;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x9996;&#x9009;&#x7684;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x91CD;&#x5B9A;&#x5411;&#x3002;&#x9664;&#x975E;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;HEAD&#x8BF7;&#x6C42;&#xFF0C;&#x5426;&#x5219;&#x8BE5;&#x54CD;&#x5E94;&#x5E94;&#x5F53;&#x5305;&#x62EC;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7279;&#x6027;&#x53CA;&#x5730;&#x5740;&#x7684;&#x5217;&#x8868;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x4EE5;&#x4FBF;&#x7528;&#x6237;&#x6216;&#x6D4F;&#x89C8;&#x5668;&#x4ECE;&#x4E2D;&#x9009;&#x62E9;&#x6700;&#x5408;&#x9002;&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x5730;&#x5740;&#x3002;</p>
+</li>
+<li><p>301 Moved Permanently&#xFF08;&#x6C38;&#x4E45;&#x79FB;&#x52A8;&#xFF09;</p>
+<p>&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x5DF2;&#x6C38;&#x4E45;&#x79FB;&#x52A8;&#x5230;&#x65B0;&#x4F4D;&#x7F6E;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x6765;&#x4EFB;&#x4F55;&#x5BF9;&#x6B64;&#x8D44;&#x6E90;&#x7684;&#x5F15;&#x7528;&#x90FD;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x672C;&#x54CD;&#x5E94;&#x8FD4;&#x56DE;&#x7684;&#x82E5;&#x5E72;&#x4E2A;URI&#x4E4B;&#x4E00;&#x3002;&#x5982;&#x679C;&#x53EF;&#x80FD;&#xFF0C;&#x62E5;&#x6709;&#x94FE;&#x63A5;&#x7F16;&#x8F91;&#x529F;&#x80FD;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x5F53;&#x81EA;&#x52A8;&#x628A;&#x8BF7;&#x6C42;&#x7684;&#x5730;&#x5740;&#x4FEE;&#x6539;&#x4E3A;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x53CD;&#x9988;&#x56DE;&#x6765;&#x7684;&#x5730;&#x5740;&#x3002;&#x9664;&#x975E;&#x989D;&#x5916;&#x6307;&#x5B9A;&#xFF0C;&#x5426;&#x5219;&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x4E5F;&#x662F;&#x53EF;&#x7F13;&#x5B58;&#x7684;&#x3002;</p>
+</li>
+<li><p>302 Found&#xFF08;&#x4E34;&#x65F6;&#x79FB;&#x52A8;&#xFF09;</p>
+<p>&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x73B0;&#x5728;&#x4E34;&#x65F6;&#x4ECE;&#x4E0D;&#x540C;&#x7684;URI&#x54CD;&#x5E94;&#x8BF7;&#x6C42;&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x6837;&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x662F;&#x4E34;&#x65F6;&#x7684;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x5F53;&#x7EE7;&#x7EED;&#x5411;&#x539F;&#x6709;&#x5730;&#x5740;&#x53D1;&#x9001;&#x4EE5;&#x540E;&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x53EA;&#x6709;&#x5728;Cache-Control&#x6216;Expires&#x4E2D;&#x8FDB;&#x884C;&#x4E86;&#x6307;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x624D;&#x662F;&#x53EF;&#x7F13;&#x5B58;&#x7684;&#x3002;</p>
+</li>
+<li><p>303 See Other&#xFF08;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#xFF09;</p>
+<p>&#x5BF9;&#x5E94;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x53EF;&#x4EE5;&#x5728;&#x53E6;&#x4E00;&#x4E2A;URI&#x4E0A;&#x88AB;&#x627E;&#x5230;&#xFF0C;&#x800C;&#x4E14;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x5F53;&#x91C7;&#x7528;GET&#x7684;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#x90A3;&#x4E2A;&#x8D44;&#x6E90;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x5B58;&#x5728;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5141;&#x8BB8;&#x7531;&#x811A;&#x672C;&#x6FC0;&#x6D3B;&#x7684;POST&#x8BF7;&#x6C42;&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8D44;&#x6E90;&#x3002;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;URI&#x4E0D;&#x662F;&#x539F;&#x59CB;&#x8D44;&#x6E90;&#x7684;&#x66FF;&#x4EE3;&#x5F15;&#x7528;&#x3002;&#x540C;&#x65F6;&#xFF0C;303&#x54CD;&#x5E94;&#x7981;&#x6B62;&#x88AB;&#x7F13;&#x5B58;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x8BF7;&#x6C42;&#xFF08;&#x91CD;&#x5B9A;&#x5411;&#xFF09;&#x53EF;&#x80FD;&#x88AB;&#x7F13;&#x5B58;&#x3002;</p>
+</li>
+<li><p>304 Not Modified&#xFF08;&#x672A;&#x4FEE;&#x6539;&#xFF09;</p>
+<p>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x4E2A;&#x5E26;&#x6761;&#x4EF6;&#x7684;GET&#x8BF7;&#x6C42;&#x4E14;&#x8BE5;&#x8BF7;&#x6C42;&#x5DF2;&#x88AB;&#x5141;&#x8BB8;&#xFF0C;&#x800C;&#x6587;&#x6863;&#x7684;&#x5185;&#x5BB9;&#xFF08;&#x81EA;&#x4E0A;&#x6B21;&#x8BBF;&#x95EE;&#x4EE5;&#x6765;&#x6216;&#x8005;&#x6839;&#x636E;&#x8BF7;&#x6C42;&#x7684;&#x6761;&#x4EF6;&#xFF09;&#x5E76;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#xFF0C;&#x5219;&#x670D;&#x52A1;&#x5668;&#x5E94;&#x5F53;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x7801;&#x3002;304&#x54CD;&#x5E94;&#x7981;&#x6B62;&#x5305;&#x542B;&#x6D88;&#x606F;&#x4F53;&#xFF0C;&#x56E0;&#x6B64;&#x59CB;&#x7EC8;&#x4EE5;&#x6D88;&#x606F;&#x5934;&#x540E;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7A7A;&#x884C;&#x7ED3;&#x5C3E;&#x3002;</p>
+</li>
+<li><p>305 Use Proxy&#xFF08;&#x4F7F;&#x7528;&#x4EE3;&#x7406;&#xFF09;</p>
+<p>&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x7684;&#x4EE3;&#x7406;&#x624D;&#x80FD;&#x88AB;&#x8BBF;&#x95EE;&#x3002;Location&#x57DF;&#x4E2D;&#x5C06;&#x7ED9;&#x51FA;&#x6307;&#x5B9A;&#x7684;&#x4EE3;&#x7406;&#x6240;&#x5728;&#x7684;URI&#x4FE1;&#x606F;&#xFF0C;&#x63A5;&#x6536;&#x8005;&#x9700;&#x8981;&#x91CD;&#x590D;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x4EE3;&#x7406;&#x624D;&#x80FD;&#x8BBF;&#x95EE;&#x76F8;&#x5E94;&#x8D44;&#x6E90;&#x3002;&#x53EA;&#x6709;&#x539F;&#x59CB;&#x670D;&#x52A1;&#x5668;&#x624D;&#x80FD;&#x521B;&#x5EFA;305&#x54CD;&#x5E94;&#x3002;</p>
+</li>
+<li><p>307 Temporary Redirect&#xFF08;&#x4E34;&#x65F6;&#x91CD;&#x5B9A;&#x5411;&#xFF09;</p>
+<p>&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x73B0;&#x5728;&#x4E34;&#x65F6;&#x4ECE;&#x4E0D;&#x540C;&#x7684;URI&#x54CD;&#x5E94;&#x8BF7;&#x6C42;&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x6837;&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x662F;&#x4E34;&#x65F6;&#x7684;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x5F53;&#x7EE7;&#x7EED;&#x5411;&#x539F;&#x6709;&#x5730;&#x5740;&#x53D1;&#x9001;&#x4EE5;&#x540E;&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x53EA;&#x6709;&#x5728;Cache-Control&#x6216;Expires&#x4E2D;&#x8FDB;&#x884C;&#x4E86;&#x6307;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x624D;&#x662F;&#x53EF;&#x7F13;&#x5B58;&#x7684;&#x3002;</p>
+</li>
+</ul>
+<h1 id="HTTP-Status-4xx-&#x5BA2;&#x6237;&#x7AEF;&#x9519;&#x8BEF;"><a href="#HTTP-Status-4xx-&#x5BA2;&#x6237;&#x7AEF;&#x9519;&#x8BEF;" class="headerlink" title="HTTP: Status 4xx(&#x5BA2;&#x6237;&#x7AEF;&#x9519;&#x8BEF;)"></a>HTTP: Status 4xx(&#x5BA2;&#x6237;&#x7AEF;&#x9519;&#x8BEF;)</h1><blockquote>
+<p>&#x8FD9;&#x7C7B;&#x7684;&#x72B6;&#x6001;&#x7801;&#x4EE3;&#x8868;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x770B;&#x8D77;&#x6765;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x59A8;&#x788D;&#x4E86;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5904;&#x7406;&#x3002;&#x9664;&#x975E;&#x54CD;&#x5E94;&#x7684;&#x662F;&#x4E00;&#x4E2A;HEAD&#x8BF7;&#x6C42;&#xFF0C;&#x5426;&#x5219;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x5F53;&#x524D;&#x9519;&#x8BEF;&#x72B6;&#x51B5;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x4EE5;&#x53CA;&#x8FD9;&#x662F;&#x4E34;&#x65F6;&#x7684;&#x8FD8;&#x662F;&#x6C38;&#x4E45;&#x6027;&#x7684;&#x72B6;&#x51B5;&#x3002;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x7801;&#x9002;&#x7528;&#x4E8E;&#x4EFB;&#x4F55;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x3002;&#x6D4F;&#x89C8;&#x5668;&#x5E94;&#x5F53;&#x5411;&#x7528;&#x6237;&#x663E;&#x793A;&#x4EFB;&#x4F55;&#x5305;&#x542B;&#x5728;&#x6B64;&#x7C7B;&#x9519;&#x8BEF;&#x54CD;&#x5E94;&#x4E2D;&#x7684;&#x5B9E;&#x4F53;&#x5185;&#x5BB9;&#x3002;</p>
+</blockquote>
+<ul>
+<li>400 Bad Request&#xFF08;&#x9519;&#x8BEF;&#x8BF7;&#x6C42;&#xFF09;</li>
+<li>401 Unauthorized&#xFF08;&#x672A;&#x6388;&#x6743;&#xFF09;</li>
+<li>403 Forbidden&#xFF08;&#x7981;&#x6B62;&#xFF09;</li>
+<li>404 Not Found&#xFF08;&#x672A;&#x627E;&#x5230;&#xFF09;</li>
+<li>405 Method Not Allowed&#xFF08;&#x65B9;&#x6CD5;&#x7981;&#x7528;&#xFF09;</li>
+<li>406 Not Acceptable&#xFF08;&#x4E0D;&#x63A5;&#x53D7;&#xFF09;</li>
+<li>407 Proxy Authentication Required&#xFF08;&#x9700;&#x8981;&#x4EE3;&#x7406;&#x6388;&#x6743;&#xFF09;</li>
+<li>408 Request Timeout&#xFF08;&#x8BF7;&#x6C42;&#x8D85;&#x65F6;&#xFF09;</li>
+<li>409 Conflict&#xFF08;&#x51B2;&#x7A81;&#xFF09;</li>
+<li>410 Gone&#xFF08;&#x5DF2;&#x5220;&#x9664;&#xFF09;</li>
+<li>411 Length Required&#xFF08;&#x9700;&#x8981;&#x6709;&#x6548;&#x957F;&#x5EA6;&#xFF09;</li>
+<li>412 Precondition Failed&#xFF08;&#x672A;&#x6EE1;&#x8DB3;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#xFF09;</li>
+<li>413 Request Entity Too Large&#xFF08;&#x8BF7;&#x6C42;&#x5B9E;&#x4F53;&#x8FC7;&#x5927;&#xFF09;</li>
+<li>414 Request-URI Too Long&#xFF08;&#x8BF7;&#x6C42;&#x7684; URI &#x8FC7;&#x957F;&#xFF09;</li>
+<li>415 Unsupported Media Type&#xFF08;&#x4E0D;&#x652F;&#x6301;&#x7684;&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#xFF09;</li>
+<li>416 Requested Range Not Satisfiable&#xFF08;&#x8BF7;&#x6C42;&#x8303;&#x56F4;&#x4E0D;&#x7B26;&#x5408;&#x8981;&#x6C42;&#xFF09;</li>
+<li>417 Expectation Failed&#xFF08;&#x672A;&#x6EE1;&#x8DB3;&#x671F;&#x671B;&#x503C;&#xFF09;</li>
+</ul>
+<h1 id="HTTP-Status-5xx-&#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;"><a href="#HTTP-Status-5xx-&#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;" class="headerlink" title="HTTP: Status 5xx(&#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;)"></a>HTTP: Status 5xx(&#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;)</h1><blockquote>
+<p>&#x8FD9;&#x7C7B;&#x72B6;&#x6001;&#x7801;&#x4EE3;&#x8868;&#x4E86;&#x670D;&#x52A1;&#x5668;&#x5728;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x9519;&#x8BEF;&#x6216;&#x8005;&#x5F02;&#x5E38;&#x72B6;&#x6001;&#x53D1;&#x751F;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x670D;&#x52A1;&#x5668;&#x610F;&#x8BC6;&#x5230;&#x4EE5;&#x5F53;&#x524D;&#x7684;&#x8F6F;&#x786C;&#x4EF6;&#x8D44;&#x6E90;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x5BF9;&#x8BF7;&#x6C42;&#x7684;&#x5904;&#x7406;&#x3002;&#x9664;&#x975E;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;HEAD&#x8BF7;&#x6C42;&#xFF0C;&#x5426;&#x5219;&#x670D;&#x52A1;&#x5668;&#x5E94;&#x5F53;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x5F53;&#x524D;&#x9519;&#x8BEF;&#x72B6;&#x6001;&#x4EE5;&#x53CA;&#x8FD9;&#x4E2A;&#x72B6;&#x51B5;&#x662F;&#x4E34;&#x65F6;&#x7684;&#x8FD8;&#x662F;&#x6C38;&#x4E45;&#x7684;&#x89E3;&#x91CA;&#x4FE1;&#x606F;&#x5B9E;&#x4F53;&#x3002;&#x6D4F;&#x89C8;&#x5668;&#x5E94;&#x5F53;&#x5411;&#x7528;&#x6237;&#x5C55;&#x793A;&#x4EFB;&#x4F55;&#x5728;&#x5F53;&#x524D;&#x54CD;&#x5E94;&#x4E2D;&#x88AB;&#x5305;&#x542B;&#x7684;&#x5B9E;&#x4F53;&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x7801;&#x9002;&#x7528;&#x4E8E;&#x4EFB;&#x4F55;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;</p>
+</blockquote>
+<ul>
+<li>500 Internal Server Error&#xFF08;&#x670D;&#x52A1;&#x5668;&#x5185;&#x90E8;&#x9519;&#x8BEF;&#xFF09;</li>
+<li>501 Not Implemented&#xFF08;&#x5C1A;&#x672A;&#x5B9E;&#x65BD;&#xFF09;</li>
+<li>502 Bad Gateway&#xFF08;&#x9519;&#x8BEF;&#x7F51;&#x5173;&#xFF09;</li>
+<li>503 Service Unavailable&#xFF08;&#x670D;&#x52A1;&#x4E0D;&#x53EF;&#x7528;&#xFF09;</li>
+<li>504 Gateway Timeout&#xFF08;&#x7F51;&#x5173;&#x8D85;&#x65F6;&#xFF09;</li>
+<li>505 HTTP Version Not Supported&#xFF08;HTTP &#x7248;&#x672C;&#x4E0D;&#x53D7;&#x652F;&#x6301;&#xFF09;</li>
+</ul>
+<h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/HTTP&#x72B6;&#x6001;&#x7801;" target="_blank" rel="external">&#x7EF4;&#x57FA;&#x767E;&#x79D1;-HTTP&#x72B6;&#x6001;&#x7801;</a>  </li>
+<li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank" rel="external">W3-Status Code Definitions</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag">#HTTP</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/17/使用XMLHttpRequest发出HTTP请求/" rel="next" title="使用XMLHttpRequest发出HTTP请求">
+                <i class="fa fa-chevron-left"></i> 使用XMLHttpRequest发出HTTP请求
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/18/jQuery的几种对象/" rel="prev" title="Jquery的几种对象">
+                Jquery的几种对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-Status-Code"><span class="nav-number">1.</span> <span class="nav-text">HTTP Status Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见status"><span class="nav-number">2.</span> <span class="nav-text">常见status</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-Status-1xx-临时响应"><span class="nav-number">3.</span> <span class="nav-text">HTTP: Status 1xx(临时响应)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-Status-2xx-成功"><span class="nav-number">4.</span> <span class="nav-text">HTTP: Status 2xx(成功)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-Status-3xx-重定向"><span class="nav-number">5.</span> <span class="nav-text">HTTP: Status 3xx(重定向)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-Status-4xx-客户端错误"><span class="nav-number">6.</span> <span class="nav-text">HTTP: Status 4xx(客户端错误)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-Status-5xx-服务器错误"><span class="nav-number">7.</span> <span class="nav-text">HTTP: Status 5xx(服务器错误)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接："><span class="nav-number">8.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
