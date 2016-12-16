@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="写写笔记，聊聊天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="links">
-<meta property="og:url" content="http://yoursite.com/links/index.html">
+<meta name="description" content="Webpack API Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack Configuration">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/webpack configuration/index.html">
 <meta property="og:site_name" content="Dora's Home">
-<meta property="og:description" content="写写笔记，聊聊天">
-<meta property="og:updated_time" content="2016-08-03T11:16:09.329Z">
+<meta property="og:description" content="Webpack API Configuration">
+<meta property="og:updated_time" content="2016-12-16T09:59:36.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="links">
-<meta name="twitter:description" content="写写笔记，聊聊天">
+<meta name="twitter:title" content="Webpack Configuration">
+<meta name="twitter:description" content="Webpack API Configuration">
 
 
 
@@ -114,15 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/links/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/16/webpack configuration/"/>
 
-  <title>
-  
-
-  
-    links | Dora's Home
-  
-</title>
+  <title> Webpack Configuration | Dora's Home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -273,9 +267,131 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Webpack Configuration
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-16T17:21:09+08:00" content="2016-12-16">
+              2016-12-16
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-    
+      
+
+      
+        <p>Webpack API Configuration</p>
+<a id="more"></a>
+<p>webpack &#x8F93;&#x5165;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#x3002;&#x6709;&#x4E24;&#x79CD;&#x4F20;&#x9012;&#x8BE5;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;CLI&#x4E0E;node.js API&#xFF0C;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x4F7F;&#x7528;webpack&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<ul>
+<li><p>CLI<br>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x662F;CLI&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x5230;&#x4E00;&#x4E2A;webpack.config.js(&#x6216;&#x8005;&#x901A;&#x8FC7;config&#x9009;&#x9879;&#x4F20;&#x9012;&#x6587;&#x4EF6;)&#xFF0C;&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x8F93;&#x51FA;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = {</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+<li><p>node.js API<br>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;node.js API&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x53C2;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">webpack({</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">}, callback)</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x591A;&#x91CD;&#x914D;&#x7F6E;</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/30/页面优化——WebPage Optimization/" rel="next" title="页面优化——WebPage Optimization">
+                <i class="fa fa-chevron-left"></i> 页面优化——WebPage Optimization
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -307,8 +423,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/头像.jpg"
@@ -351,6 +476,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -447,6 +583,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
