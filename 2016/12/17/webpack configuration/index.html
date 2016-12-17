@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="写写笔记，聊聊天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dora's Home">
-<meta property="og:url" content="http://yoursite.com/tags/HTTP/index.html">
+<meta name="description" content="Webpack API Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack Configuration">
+<meta property="og:url" content="http://yoursite.com/2016/12/17/webpack configuration/index.html">
 <meta property="og:site_name" content="Dora's Home">
-<meta property="og:description" content="写写笔记，聊聊天">
+<meta property="og:description" content="Webpack API Configuration">
+<meta property="og:updated_time" content="2016-12-17T11:28:55.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dora's Home">
-<meta name="twitter:description" content="写写笔记，聊聊天">
+<meta name="twitter:title" content="Webpack Configuration">
+<meta name="twitter:description" content="Webpack API Configuration">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/HTTP/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/17/webpack configuration/"/>
 
-  <title> 标签: HTTP | Dora's Home </title>
+  <title> Webpack Configuration | Dora's Home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,74 +265,134 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        HTTP
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/12/关于HTTP Request/" itemprop="url">
-              
-                <span itemprop="name">关于HTTP</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-12T12:31:22+08:00"
-              content="2016-10-12" >
-          10-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/12/常见status/" itemprop="url">
-              
-                <span itemprop="name">常见 HTTP Status Code</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-12T12:31:22+08:00"
-              content="2016-10-12" >
-          10-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Webpack Configuration
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-17T19:28:55+08:00" content="2016-12-17">
+              2016-12-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Webpack API Configuration</p>
+<a id="more"></a>
+<p>webpack 输入的是一个配置对象。有两种传递该配置对象的方法：CLI与node.js API，具体使用哪种取决于你使用webpack的方式。</p>
+<ul>
+<li><p>CLI<br>如果你使用的是CLI工具，可以读取到一个webpack.config.js(或者通过config选项传递文件)，文件应该输出配置对象如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>node.js API<br>如果你使用node.js API，你需要使用参数的方式传递配置对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">webpack(&#123;</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">&#125;, callback)</div></pre></td></tr></table></figure>
+</li>
+<li><p>多重配置<br>两种情况中你也可以使用一个配置数组，这样可以并行处理。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/12/jQuery的几种对象/" rel="next" title="Jquery的几种对象">
+                <i class="fa fa-chevron-left"></i> Jquery的几种对象
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -339,6 +400,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -358,8 +423,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/头像.jpg"
@@ -402,6 +476,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -498,6 +583,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
