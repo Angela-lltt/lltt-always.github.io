@@ -1,0 +1,681 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Webpack API Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack Configuration">
+<meta property="og:url" content="http://yoursite.com/2016/12/19/webpack configuration/index.html">
+<meta property="og:site_name" content="Dora's Home">
+<meta property="og:description" content="Webpack API Configuration">
+<meta property="og:updated_time" content="2016-12-20T14:15:46.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack Configuration">
+<meta name="twitter:description" content="Webpack API Configuration">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/19/webpack configuration/"/>
+
+  <title> Webpack Configuration | Dora's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dora's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的技术成长之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-reorder"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-project">
+          <a href="/project" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tasks"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Webpack Configuration
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-19T21:33:07+08:00" content="2016-12-19">
+              2016-12-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Webpack API Configuration</p>
+<a id="more"></a>
+<p>#前言<br>webpack 输入的是一个配置对象。有两种传递该配置对象的方法：CLI与node.js API，具体使用哪种取决于你使用webpack的方式。</p>
+<p>##CLI<br>如果你使用的是CLI工具，可以读取到一个webpack.config.js(或者通过config选项传递文件)，文件应该输出配置对象如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##node.js API<br>如果你使用node.js API，你需要使用参数的方式传递配置对象：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">webpack(&#123;</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">&#125;, callback)</div></pre></td></tr></table></figure></p>
+<p>##多重配置<br>两种情况中你也可以使用一个配置数组，这样可以并行处理。他们共享文件系统缓存与监听，因此比多次调用webpack更有效</p>
+<p>#配置对象内容</p>
+<blockquote>
+<p>请记住你不必在配置文件中书写纯JSON对象。可以使用任意你想用的Javascript。它只是一个node模板</p>
+</blockquote>
+<p>一个简单的配置对象举例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    context: __dirname + &quot;/app&quot;,</div><div class="line">    entry: &quot;./entry&quot;,</div><div class="line">    output: &#123;</div><div class="line">        path: __dirname + &quot;/dist&quot;,</div><div class="line">        filename: &quot;bundle.js&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##context——上下文</p>
+<p>解析 <code>entry</code> 选项的绝对路径，如果 <code>output.pathinfo</code> 参数被设置，包含的pathinfo被该绝对路径缩短（即为绝对路径的子目录）</p>
+<p>##entry——入口文件<br>如果传递一个字符串：字符串被解析为开始时加载的模块。<br>如果传递一个数组：所有模块在开始时载入，最后一个被输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">entry: [&quot;./entry1&quot;, &quot;./entry2&quot;]</div></pre></td></tr></table></figure>
+<p>如果传递一个对象：会创建多个入口束，key为块名称，value可以为字符串或数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    entry: &#123;</div><div class="line">        page1: &quot;./page1&quot;,</div><div class="line">        page2: [&quot;./entry1&quot;, &quot;./entry2&quot;]</div><div class="line">    &#125;,</div><div class="line">    output: &#123;</div><div class="line">        // Make sure to use [name] or [id] in output.filename</div><div class="line">        //  when using multiple entry points</div><div class="line">        filename: &quot;[name].bundle.js&quot;,</div><div class="line">        chunkFilename: &quot;[id].bundle.js&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：不可以针对入口设置其他特别的配置，如果你需要对入口文件进行特殊配置，你需要使用上述的<a href="##多重配置">多重配置</a></p>
+</blockquote>
+<p>##output——输出文件<br>影响编译输出的选项，<code>output</code> 选项告诉webpack如何将编译后的文件书写到磁盘中。注意，当有多重 <code>entry</code> 时，规定只有一个输出配置。<br>如果你使用任意的散列法（hash或者chunkhash），要确保考虑到了模块的尺寸，可以使用<code>OccurrenceOrderPlugin</code> 或者 <code>recordsPath</code></p>
+<p>###output.filename<br>指定每一个输出到磁盘的文件名。在这里绝对不能指定绝对路径。<code>output.path</code> 选项决定了文件写入磁盘的位置，<code>filename</code> 仅用作每个文件的命名</p>
+<ul>
+<li>单入口</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  entry: &apos;./src/app.js&apos;,</div><div class="line">  output: &#123;</div><div class="line">    filename: &apos;bundle.js&apos;,</div><div class="line">    path: __dirname + &apos;/build&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// writes to disk: ./build/bundle.js</div></pre></td></tr></table></figure>
+<ul>
+<li>多入口<br>如果你的配置创建了不止一个“chunk”块（比如使用了多入口或者使用了类似CommonsChunkPlugin插件），你应该使用“替代物”来确保每个文件的名字都不相同。<br><code>name</code> 被chunk名取代<br><code>hash</code> 被编译文件的hash值取代<br><code>chunkhash</code> 被chunk的hash值取代</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  entry: &#123;</div><div class="line">    app: &apos;./src/app.js&apos;,</div><div class="line">    search: &apos;./src/search.js&apos;</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">    filename: &apos;[name].js&apos;,</div><div class="line">    path: __dirname + &apos;/build&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// writes to disk: ./build/app.js, ./build/search.js</div></pre></td></tr></table></figure>
+<p>###output.path<br>输出路径，必须为绝对路径<br><code>hash</code> 被编译文件的hash值取代</p>
+<p>###output.publicPath<br><code>publicPath</code> 指定输出文件在浏览器中引用时的公共URL地址，对于使用<code>&lt;link&gt;</code>、<code>&lt;script&gt;</code> 标签的加载或是像图片一样的引用资源，<code>publicPath</code> 被用作为文件的 href 或 url 当 publicPath 与他们在磁盘上的位置不同时（区别于 <code>path</code>）。这对于当你想要访问在一个不同域或者CDN的一些或者全部输出文件时很有帮助。Webpack Dev Server也使用这种方法来确定输出文件期望的服务器路径。和 <code>path</code> 相同，你可以使用 hash 优化缓存机制</p>
+<ul>
+<li><p>config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    path: &quot;/home/proj/public/assets&quot;,</div><div class="line">    publicPath: &quot;/assets/&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>index.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">  &lt;link href=&quot;/assets/spinner.gif&quot;/&gt;</div><div class="line">&lt;/head&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    path: &quot;/home/proj/cdn/assets/[hash]&quot;,</div><div class="line">    publicPath: &quot;http://cdn.example.com/assets/[hash]/&quot;</div><div class="line">&#125;</div><div class="line">//使用CDN和hash值的例子</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注：如果在编译的时候还不知道最终输出文件的 <code>publicPath</code>，可以留为 blank 然后运行过程中在入口文件进行动态设置。如果在编译的时候你不知道 <code>publicPath</code> ，你可以省略它，然后在入口文件设置 <code>__webpack_public_path__</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> __webpack_public_path__ = myRuntimePublicPath</div><div class="line"></div><div class="line">// rest of your application entry</div></pre></td></tr></table></figure>
+<p>###output.devtoolModuleFilenameTemplate<br>生成的SourceMap中<code>sources</code>队列函数的文件模板字符串<br>[resource]表示webpack解析文件的路径，包括最右边加载器的查询参数（如果有的话）<br>[resource-path]同[resource]但是不包含查询参数<br>[loaders]表示加载器列表，参数取决于最右侧加载器的名字（只是明确的加载器）<br>[all-loaders]表示加载器列表，参数取决于最右侧加载器的名字（包括自动加载器）<br>[id]表示模块id<br>[hash]表示模块标识的hash值<br>[absolute-resource-path]表示绝对名字</p>
+<blockquote>
+<p>Default (devtool=[inline-]source-map): “webpack:///[resource-path]”<br>Default (devtool=eval): “webpack:///[resource-path]?[loaders]”<br>Default (devtool=eval-source-map): “webpack:///[resource-path]?[hash]”</p>
+</blockquote>
+<p>也可以定义一个函数来替代字符串模板。函数接收一个info对象为参数，包含下列属性：</p>
+<ul>
+<li>identifier</li>
+<li>shortIdentifier</li>
+<li>resource</li>
+<li>resourcePath</li>
+<li>absoluteResourcePath</li>
+<li>allLoaders</li>
+<li>query</li>
+<li>moduleId</li>
+<li>hash</li>
+</ul>
+<p>###output.devtoolFallbackModeluFilenameTemplate<br>与<code>output.devtoolModuleFilenameTemplate</code>相似，但是在复制模块标识符时使用</p>
+<blockquote>
+<p>Default: “webpack:///[resourcePath]?[hash]”</p>
+</blockquote>
+<p>###output.devtoolLineToLine<br>开启全部/个别模块行对行匹配模式。行对行匹配牧师使用一个简单的SourceMap是的每一行生成的资源都与原资源的同一行相匹配。它是一个出色的优化。仅使用该功能就可以使你的表现更加优秀，并且你可以确信输入的信息与生成的信息是匹配的<br><code>true</code>为全部模块开启该功能<br>一个对象与 <code>module.loaders</code> 相似的 <code>{test, include, exclude}</code> 对象可以为指定文件开启该功能</p>
+<blockquote>
+<p>Default: disabled</p>
+</blockquote>
+<p>#备注</p>
+<blockquote>
+<ol>
+<li>chunk 被entry所依赖的额外代码块</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/12/jQuery的几种对象/" rel="next" title="Jquery的几种对象">
+                <i class="fa fa-chevron-left"></i> Jquery的几种对象
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/头像.jpg"
+               alt="litong" />
+          <p class="site-author-name" itemprop="name">litong</p>
+          <p class="site-description motion-element" itemprop="description">写写笔记，聊聊天</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">litong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
