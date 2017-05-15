@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>页面优化——WebPage Optimization | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="多个页面优化中的建议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="页面优化——WebPage Optimization">
+<meta property="og:url" content="http://yoursite.com/2017/02/03/页面优化——WebPage Optimization/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多个页面优化中的建议">
+<meta property="og:updated_time" content="2017-02-03T08:31:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="页面优化——WebPage Optimization">
+<meta name="twitter:description" content="多个页面优化中的建议">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-页面优化——WebPage Optimization" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/03/页面优化——WebPage Optimization/" class="article-date">
+  <time datetime="2017-02-03T08:31:21.000Z" itemprop="datePublished">2017-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      页面优化——WebPage Optimization
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>多个页面优化中的建议</p>
+<a id="more"></a>
+<h1 id="减少HTTP请求次数"><a href="#减少HTTP请求次数" class="headerlink" title="减少HTTP请求次数"></a>减少HTTP请求次数</h1><p>  对于图片，使用CSS Spirits方法对一张大图片进行切图，主要使用CSS的两个属性，background-image和background-position</p>
+<p>  对于脚本和样式，合并脚本和样式文件（combo），对于不同的网页类型，有不同的加载策略</p>
+<ul>
+<li>内容型：合并脚本文件放在body底部</li>
+<li><p>应用型：按需加载脚本</p>
+<p>减少HTTP请求的优点：</p>
+</li>
+<li>减少DNS请求和解析耗费的时间</li>
+<li>减少服务器压力</li>
+<li>减少HTTP请求头，从而减小对带宽的占用</li>
+</ul>
+<h1 id="减少DNS查找次数"><a href="#减少DNS查找次数" class="headerlink" title="减少DNS查找次数"></a>减少DNS查找次数</h1><p>当客户端中的DNS缓存都为空时（浏览器和操作系统都为空），DNS查找的次数和页面中主机名的数量相同。这其中包括页面中URL、图片、脚本文件、样式表、Flash对象等包含的主机名。减少主机名的数量可以减少DNS查找次数，节省响应时间。</p>
+<p>但是减少主机名会减少页面中的并行下载数量，会增加下载时间，所以DNS查找次数的减少方案需要权衡下载时间与响应时间。</p>
+<h1 id="避免跳转"><a href="#避免跳转" class="headerlink" title="避免跳转"></a>避免跳转</h1><p>在用户和HTML文档中间增加一个跳转回拖延页面中所有元素的显示，因为在HTM：文件被加载前任何文件（图像、Flash等）都不会被下载。</p>
+<p>有一种经常被网页开发者忽略却往往十分浪费响应时间的跳转现象。这种现象发生在当URL本该有斜杠（/）却被忽略掉时。例如，当我们要访问<a href="http://astrology.yahoo.com/astrology" target="_blank" rel="external">http://astrology.yahoo.com/astrology</a> 时，实际上返回的是一个包含301代码的跳转，它指向的是<a href="http://astrology.yahoo.com/astrology/" target="_blank" rel="external">http://astrology.yahoo.com/astrology/</a>  （注意末尾的斜杠）。</p>
+<p>连接新网站和旧网站是跳转功能经常被用到的另一种情况。这种情况下往往要连接网站的不同内容然后根据用户的不同类型（如浏览器类型、用户账号所属类型）来进行跳转。使用跳转来实现两个网站的切换十分简单，需要的代码量也不多。尽管使用这种方法对于开发者来说可以降低复杂程度，但是它同样降低用户体验。一个可替代方法就是如果两者在同一台服务器上时使用Alias和mod_rewrite和实现。如果是因为域名的不同而采用跳转，那么可以通过使用Alias或者mod_rewirte建立CNAME（保存一个域名和另外一个域名之间关系的DNS记录）来替代。</p>
+<h1 id="可缓存的Ajax"><a href="#可缓存的Ajax" class="headerlink" title="可缓存的Ajax"></a>可缓存的Ajax</h1><p>为了提高性能，优化Ajax响应是很重要的。提高Ajxa性能的措施中最重要的方法就是使响应具有可缓存性，具体的讨论可以查看Add an Expires or a Cache-Control Header。</p>
+<h1 id="推迟加载内容"><a href="#推迟加载内容" class="headerlink" title="推迟加载内容"></a>推迟加载内容</h1><p>把整个过程按照onload事件分割成两部分，onload前加载页面必须项，onload加载可延迟项。工具可以节省你的工作量：YUI Image Loader可以帮你推迟加载折叠部分的图片， YUI Get utility是包含JS和 CSS的便捷方法。</p>
+<h1 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h1><p>预加载是在浏览器空闲时请求将来可能会用到的页面内容（如图像、样式表和脚本）。</p>
+<p>下面提供了几种预加载方法：<br>无条件加载：触发onload事件时，直接加载额外的页面内容，如Google.com。<br>有条件加载：根据用户的操作来有根据地判断用户下面可能去往的页面并相应的预加载页面内容，如search.yahoo.com。</p>
+<h1 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h1><p>过多的DOM元素会是的Javascript便利DOM的效率减慢，因此要适当减少DOM数量。<br>YUI CSS utilities可以给你的布局带来巨大帮助：grids.css可以帮你实现整体布局，font.css和reset.css可以帮助你移除浏览器默认格式。它提供了一个重新审视你页面中标签的机会，比如只有在语意上有意义时才使用<code>&lt;div&gt;</code>，而不是因为它具有换行效果才使用它。 </p>
+<p><code>document.getElementsByTagName(&#39;*&#39;).length</code>能够计算页面中有多少个DOM元素</p>
+<h1 id="根据域名划分页面内容"><a href="#根据域名划分页面内容" class="headerlink" title="根据域名划分页面内容"></a>根据域名划分页面内容</h1><p>由于浏览器对同一域名的下载数量有限制，把页面内容划分成若干部门可以大幅减少下载时间，但同时要考虑DNS查找的影响，所以最好把域名数量控制在2到4个。</p>
+<p>例如，你可以把用到的HTML内容和动态内容放在www.example.org上，而把页面各种组件（图片、脚本、CSS)分别存放在statics1.example.org和statics.example.org上。<br>你可在Tenni Theurer和Patty Chi合写的文章Maximizing Parallel Downloads in the Carpool Lane找到更多相关信息。</p>
+<h1 id="使iframe的数量最小"><a href="#使iframe的数量最小" class="headerlink" title="使iframe的数量最小"></a>使iframe的数量最小</h1><p>iframe多用来在网页中加载广告</p>
+<p>优点：</p>
+<ul>
+<li>解决加载缓慢的第三方内容如图标和广告等的加载问题 </li>
+<li>Security sandbox </li>
+<li>并行加载脚本 </li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>即时内容为空，加载也需要时间 </li>
+<li>会阻止页面加载 </li>
+<li>没有语意 </li>
+</ul>
+<h1 id="不要出现404错误"><a href="#不要出现404错误" class="headerlink" title="不要出现404错误"></a>不要出现404错误</h1><h1 id="使用内容分发网络（Content-Delivery-Network）"><a href="#使用内容分发网络（Content-Delivery-Network）" class="headerlink" title="使用内容分发网络（Content  Delivery Network）"></a>使用内容分发网络（Content  Delivery Network）</h1><p>内容较复杂，可稍后研究</p>
+<h1 id="为文件头指定Expires或Cache-Control"><a href="#为文件头指定Expires或Cache-Control" class="headerlink" title="为文件头指定Expires或Cache-Control"></a>为文件头指定Expires或Cache-Control</h1><p>对于静态内容：设置文件头过期时间Expires的值为“Never expire”（永不过期）<br>对于动态内容：使用恰当的Cache-Control文件头来帮助浏览器进行有条件的请求 </p>
+<h1 id="Gzip压缩文件内容"><a href="#Gzip压缩文件内容" class="headerlink" title="Gzip压缩文件内容"></a>Gzip压缩文件内容</h1><p>减小HTTP响应的大小可以节省HTTP响应时间，HTTP请求中有Accept-Encoding: gzip, deflate字段来设这文件压缩格式，如果web服务器在请求的文件头中检测到上面的代码，就会以客户端列出的方式压缩响应内容。<br>服务器根据文件类型来选择需要进行gzip压缩的文件，但是这过于限制了可压缩的文件。大多数web服务器会压缩HTML文档。对脚本和样式表进行压缩同样也是值得做的事情，但是很多web服务器都没有这个功能。实际上，压缩任何一个文本类型的响应，包括XML和JSON，都值得的。图像和PDF文件由于已经压缩过了所以不能再进行gzip压缩。如果试图gizp压缩这些文件的话不但会浪费CPU资源还会增加文件的大小。<br>Gzip压缩所有可能的文件类型是减少文件体积增加用户体验的简单方法。</p>
+<h1 id="配置Etag"><a href="#配置Etag" class="headerlink" title="配置Etag"></a>配置Etag</h1><p>是web服务器和浏览器用于判断浏览器缓存中的内容和服务器中的原始内容是否匹配的一种机制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK </div><div class="line">Last-Modified: Tue, 12 Dec 2006 03:03:59 GMT </div><div class="line">ETag: &quot;10c24bc-4ab-457e1c1f&quot; </div><div class="line">Content-Length: 12195</div></pre></td></tr></table></figure></p>
+<p>稍后，如果浏览器要验证一个文件，它会使用If-None-Match文件头来把ETag传回给原始服务器。在这个例子中，如果ETag匹配，就会返回一个304状态码，这就节省了12195字节的响应。<br>ETag的问题在于，它是根据可以辨别网站所在的服务器的具有唯一性的属性来生成的。当浏览器从一台服务器上获得页面内容后到另外一台服务器上进行验证时ETag就会不匹配，这种情况对于使用服务器组和处理请求的网站来说是非常常见的。默认情况下，Apache和IIS都会把数据嵌入ETag中，这会显著减少多服务器间的文件验证冲突。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/03/页面优化——WebPage Optimization/" data-id="cj2py3r03002348zl3nteoryh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/03/进程、线程和协程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          进程、线程和协程
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/">Command Line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network-security/">Network security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Command-Line/" style="font-size: 10px;">Command Line</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Network-security/" style="font-size: 13.33px;">Network security</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Others/" style="font-size: 10px;">Others</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/03/JS继承中级/">JS继承（中级）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS 外边距叠加/">外边距叠加 Margin</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS：模块居中/">CSS使div居中</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS浏览器默认样式/">CSS浏览器默认样式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

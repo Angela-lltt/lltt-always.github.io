@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS像素, 设备像素 and 参考像素 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="说一说关于像素的事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS像素, 设备像素 and 参考像素">
+<meta property="og:url" content="http://yoursite.com/2017/02/03/CSS px & Device px/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="说一说关于像素的事">
+<meta property="og:updated_time" content="2017-02-03T08:31:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS像素, 设备像素 and 参考像素">
+<meta name="twitter:description" content="说一说关于像素的事">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS px &amp; Device px" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/03/CSS px & Device px/" class="article-date">
+  <time datetime="2017-02-03T08:31:21.000Z" itemprop="datePublished">2017-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS像素, 设备像素 and 参考像素
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说一说关于像素的事</p>
+<a id="more"></a>
+<h2 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h2><h2 id="CSS像素-CSS-pixel"><a href="#CSS像素-CSS-pixel" class="headerlink" title="CSS像素(CSS pixel)"></a>CSS像素(CSS pixel)</h2><p>CSS像素是Web编程的概念，指的是CSS样式代码中使用的逻辑像素。<br>在CSS规范中，长度单位可以分为两类，绝对(absolute)单位以及相对(relative)单位。<br>按照CSS规范的定义，CSS中的px是一个相对长度，它相对的，是viewing device的分辨率。</p>
+<h2 id="设备像素-Device-pixel"><a href="#设备像素-Device-pixel" class="headerlink" title="设备像素(Device pixel)"></a>设备像素(Device pixel)</h2><p>设备像素设是物理概念，指的是设备中使用的物理像素。<br>不同的设备，其图像基本单位是不同的，比如显示器的点距，可以认为是显示器的物理像素。现在的液晶显示器的点距一般在0.25mm到0.29mm之间。而打印机的墨点，也可以认为是打印机的物理像素，300DPI就是0.085mm，600DPI就是0.042mm。</p>
+<h2 id="设备像素与CSS像素之间的换算"><a href="#设备像素与CSS像素之间的换算" class="headerlink" title="设备像素与CSS像素之间的换算"></a>设备像素与CSS像素之间的换算</h2><p>一般来说，px就是对应设备的物理像素，然而如果输出设备的解析度与电脑显示器大不相同，输出效果就会有问题。例如打印机输出到纸张上，其解析度比电脑屏幕要高许多，如果不缩放，直接使用设备的物理像素，那电脑上的照片由600DPI的打印机打出来就比用显示器看小了约6倍。</p>
+<p>所以，CSS规定，在这种情况下，浏览器应该对像素值进行缩放调节，以保持阅读体验的大体一致。也就是要保持一定像素的长度在不同设备输出上看上去的大小总是差不多。直接按照设备物理像素的大小进行换算当然是一个方式，但是CSS考虑得更多，它建议，转换应按照“参考像素”（reference pixel）来进行。</p>
+<p>眼睛看到的大小，取决于可视角度。而可视角度取决于物体的实际大小以及物体与眼睛的距离。10米远处一个1米见方的东西，与1米远处的10厘米见方的东西，看上去的大小差不多是一样的，所谓一叶障目不见泰山，讲的就是这个常识。</p>
+<p>因此CSS规范使用视角来定义“参考像素”，1 参考像素即为从一臂之遥看解析度为96DPI的设备输出（即1英寸96点）时，1点（即1/96英寸）的视角。</p>
+<p>请注意这个差别——CSS规范定义的参考像素并不是1/96英寸，而是1/96英寸在一臂之遥的看起来的视角。通常认为常人臂长为28英寸，所以其视角可以计算出来是0.0213度。（即(1/96)in / (28in 2 PI / 360deg) ）</p>
+<p>我们在使用不同设备输出时，眼睛与设备输出的典型距离是不同的。比如iPhone 5使用的是Retina视网膜屏幕，使用2px x 2px的 device pixel 代表 1px x 1px 的 css pixel，所以设备像素数为640 x 1136px，而CSS逻辑像素数为320 x 568px。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>所以，对一个固定屏幕而言，px是绝对单位，即设备像素</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/03/CSS px & Device px/" data-id="cj2py3qx5000148zltvsl6b7g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/03/hash算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hash算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/03/jQuery的几种对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Jquery的几种对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/">Command Line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network-security/">Network security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Command-Line/" style="font-size: 10px;">Command Line</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Network-security/" style="font-size: 13.33px;">Network security</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Others/" style="font-size: 10px;">Others</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/03/JS继承中级/">JS继承（中级）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS 外边距叠加/">外边距叠加 Margin</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS：模块居中/">CSS使div居中</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS浏览器默认样式/">CSS浏览器默认样式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

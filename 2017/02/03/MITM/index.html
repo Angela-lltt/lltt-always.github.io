@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MITM中间人攻击 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="举例说明中间人攻击">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MITM中间人攻击">
+<meta property="og:url" content="http://yoursite.com/2017/02/03/MITM/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="举例说明中间人攻击">
+<meta property="og:image" content="http://yoursite.com/../images/ARP01.png">
+<meta property="og:image" content="http://yoursite.com/../images/ARP02.png">
+<meta property="og:image" content="http://yoursite.com/../images/ARP03.png">
+<meta property="og:updated_time" content="2017-02-03T08:31:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MITM中间人攻击">
+<meta name="twitter:description" content="举例说明中间人攻击">
+<meta name="twitter:image" content="http://yoursite.com/../images/ARP01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MITM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/03/MITM/" class="article-date">
+  <time datetime="2017-02-03T08:31:21.000Z" itemprop="datePublished">2017-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MITM中间人攻击
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>举例说明中间人攻击</p>
+<a id="more"></a>
+<p>MITM(Man-in-the-middle-attack)，中间人攻击，是指攻击者与通讯的两端分别创建独立的联系，并交换其所受到的数据，使通讯的两端认为他们在通过一个私密的连接于对方直接对话，但实际上整个会话都被攻击者完全控制。</p>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><p><em>爱丽丝 马洛里 鲍勃</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">爱丽丝“嗨，鲍勃，我是爱丽丝。给我你的公钥” --&gt; 马洛里 鲍勃</div><div class="line">爱丽丝 马洛里“嗨，鲍勃，我是爱丽丝。给我你的公钥” --&gt; 鲍伯</div><div class="line">爱丽丝 马洛里&lt;-- [鲍伯的公钥]-- 鲍伯</div><div class="line">爱丽丝&lt;-- [马洛里的公钥]-- 马洛里 鲍勃</div><div class="line">爱丽丝“我们在公共汽车站见面！”--[使用马洛里的公钥加密] --&gt; 马洛里 鲍勃</div><div class="line">爱丽丝 马洛里“在家等我！”--[使用鲍伯的公钥加密] --&gt; 鲍伯</div></pre></td></tr></table></figure></p>
+<p>重点：通讯两端身份验证</p>
+<h2 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h2><ul>
+<li>ARP投毒<ul>
+<li>主机C冒充网关欺骗主机B<br>只能窃取受攻击主机的外发数据包，无法接受到从远程服务端返回的返回数据包，无法进行流量内容修改，流量注入。<br><img src="../images/ARP01.png" alt="img"></li>
+<li>攻击者仅欺骗被攻击主机，同事在本地进行Iptable NAT转发<br>由于使用了NAT技术，从服务端返回的数据包也会经过攻击者的主机了，这样，攻击者就可以在本地进行流量内容的修改、流量注入了<br><img src="../images/ARP02.png" alt="img">  </li>
+<li>攻击者同事欺骗被攻击主机和网关<br>在双向ARP欺骗中，攻击者仅仅充当了一个”数据包路由转发”的角色，将两个方向的数据包都进行转发。<br><img src="../images/ARP03.png" alt="img"></li>
+</ul>
+</li>
+</ul>
+<p>后续内容可参考<a href="http://www.cnblogs.com/LittleHann/p/3735602.html" target="_blank" rel="external">中间人攻击(MITM)姿势总结</a></p>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><ul>
+<li>PKI相互认证机制：应用程序验证用户&lt;——&gt;用户设备验证应用程序，对正规软件有效</li>
+<li>延迟测试</li>
+<li>第二通道校验</li>
+</ul>
+<p>更多信息可</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/03/MITM/" data-id="cj2py3qyb000m48zld7a313al" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-security/">Network security</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/03/Nginx配置反向代理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nginx 初探
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/03/React/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/">Command Line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network-security/">Network security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Command-Line/" style="font-size: 10px;">Command Line</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Network-security/" style="font-size: 13.33px;">Network security</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Others/" style="font-size: 10px;">Others</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/03/JS继承中级/">JS继承（中级）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS 外边距叠加/">外边距叠加 Margin</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS：模块居中/">CSS使div居中</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS浏览器默认样式/">CSS浏览器默认样式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

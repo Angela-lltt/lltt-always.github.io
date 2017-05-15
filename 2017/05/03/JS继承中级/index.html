@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS继承（中级） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JS继承的几种实现方法与差异比较">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS继承（中级）">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/JS继承中级/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JS继承的几种实现方法与差异比较">
+<meta property="og:updated_time" content="2017-05-15T09:36:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS继承（中级）">
+<meta name="twitter:description" content="JS继承的几种实现方法与差异比较">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JS继承中级" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/03/JS继承中级/" class="article-date">
+  <time datetime="2017-05-03T03:20:31.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS继承（中级）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JS继承的几种实现方法与差异比较</p>
+<a id="more"></a>
+<h3 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h3><p>为了能够更好的比较不同继承方法的优缺点，我们对要被继承的父类做一个内容约定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 统一的父类</div><div class="line"></div><div class="line">function Fun() &#123;</div><div class="line">    // 私有属性</div><div class="line">    var val = 1;   // 私有基本属性</div><div class="line">    var arr = [];  // 私有引用属性</div><div class="line">    function fun()&#123;&#125;;  // 私有函数（引用属性）</div><div class="line"></div><div class="line">    // 实例属性</div><div class="line">    this.val = 1;   // 实例基本属性</div><div class="line">    this.arr = [];  // 实例引用属性</div><div class="line">    this.fun = function()&#123;&#125;;  //  实例函数（引用属性）</div><div class="line">&#125;</div><div class="line">// 原型属性</div><div class="line">Fun.prototype.val = 1;  //原型基本属性</div><div class="line">Fun.prototype.arr = [1];  //原型引用属性</div><div class="line">Fun.prototype.fun = function()&#123;&#125;;  //原型函数（引用属性）</div></pre></td></tr></table></figure>
+<h3 id="方法一：构造函数法，父类实例充当子类的原型对象"><a href="#方法一：构造函数法，父类实例充当子类的原型对象" class="headerlink" title="方法一：构造函数法，父类实例充当子类的原型对象"></a>方法一：构造函数法，父类实例充当子类的原型对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Father()&#123;</div><div class="line">    this.val = 1;</div><div class="line">    this.arr = [1];</div><div class="line">    this.fun = function()&#123;&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Son() &#123;</div><div class="line">    // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">Son.prototype = new Father();</div><div class="line">Son.prototype.constructor = Son;</div></pre></td></tr></table></figure>
+<p>优点：易于实现<br>缺点：子类实例共享父类的引用属性，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var son1 = new Son();</div><div class="line">var son2 = new Son();</div><div class="line"></div><div class="line">son1.arr.push(2);</div><div class="line"></div><div class="line">son1.arr; // [1, 2]</div><div class="line">son2.arr; // [1, 2]</div><div class="line">son1.arr == son2.arr; // true</div></pre></td></tr></table></figure>
+<h3 id="方法二：构造函数法，借父类构造函数扩展子类实例"><a href="#方法二：构造函数法，借父类构造函数扩展子类实例" class="headerlink" title="方法二：构造函数法，借父类构造函数扩展子类实例"></a>方法二：构造函数法，借父类构造函数扩展子类实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Father()&#123;</div><div class="line">    this.val = 1;</div><div class="line">    this.arr = [1];</div><div class="line">    this.fun = function()&#123;&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Son() &#123;</div><div class="line">    // ...</div><div class="line">    Father.call(this);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优点：解决了上一方法子类实例共享父类的引用属性问题<br>缺点：无法实现函数复用，每个子类实例都持有一个新的function，易对性能造成影响，例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var son1 = new Son();</div><div class="line">var son2 = new Son();</div><div class="line"></div><div class="line">son1.arr.push(2);</div><div class="line"></div><div class="line">son1.arr; // [1, 2]</div><div class="line">son2.arr; // [1]</div><div class="line">son1.arr == son2.arr; // false</div><div class="line"></div><div class="line">son1.fun == son2.fun // false</div></pre></td></tr></table></figure>
+<h3 id="方法三：组合法，组合上述两种方法"><a href="#方法三：组合法，组合上述两种方法" class="headerlink" title="方法三：组合法，组合上述两种方法"></a>方法三：组合法，组合上述两种方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Father()&#123;</div><div class="line">    // 只在此处声明基本属性和引用属性</div><div class="line">    this.val = 1;</div><div class="line">    this.arr = [1];</div><div class="line">&#125;</div><div class="line">//  在此处声明函数</div><div class="line">Father.prototype.fun1 = function()&#123;&#125;;</div><div class="line">Father.prototype.fun2 = function()&#123;&#125;;</div><div class="line"></div><div class="line">function Son()&#123;</div><div class="line">    Father.call(this);   // 核心</div><div class="line">    // ...</div><div class="line">&#125;</div><div class="line">Son.prototype = new Father();    // 核心</div><div class="line">Son.prototype.constructor = Son;</div></pre></td></tr></table></figure>
+<p>优点：能够同时解决函数复用与不共享父类引用属性问题，<br>缺点：（一点小瑕疵）子类原型上有一份多余的父类实例属性，因为父类构造函数被调用了两次，生成了两份，而子类实例上的那一份屏蔽了子类原型上的。又是内存浪费，比刚才情况好点，不过确实是瑕疵，例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var son1 = new Son(1);</div><div class="line">var son2 = new Son(2);</div><div class="line"></div><div class="line">son1.arr.push(2);</div><div class="line">son1.arr; // [1, 2]</div><div class="line">son2.arr; // [1]</div><div class="line">son1.arr == son2.arr; // false</div><div class="line"></div><div class="line">son1.fun == son2.fun; // true</div><div class="line"></div><div class="line">son2;</div><div class="line">/*</div><div class="line">&#123;</div><div class="line">    arr: [1],</div><div class="line">    val: 1,</div><div class="line">    __proto__: &#123;</div><div class="line">        arr: [1],</div><div class="line">        constructor: Son(),</div><div class="line">        val: 1,</div><div class="line">        __proto__: Object</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="方法四：寄生组合继承"><a href="#方法四：寄生组合继承" class="headerlink" title="方法四：寄生组合继承"></a>方法四：寄生组合继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function Father()&#123;</div><div class="line">    this.val = 1;</div><div class="line">    this.arr = [1];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Father.prototype.fun1 = function()&#123;&#125;;</div><div class="line">Father.prototype.fun2 = function()&#123;&#125;;</div><div class="line"></div><div class="line">function beget(funAttr)&#123;</div><div class="line">    function F()&#123;&#125;;</div><div class="line">    F.prototype = funAttr;</div><div class="line">    return new F();</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Son()&#123;</div><div class="line">    // ...</div><div class="line">    Father.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Son.prototype = beget(Father.prototype);</div><div class="line">Son.prototype.constructor = Son;</div></pre></td></tr></table></figure>
+<p>优点：解决上述全部问题，<br>缺点：写法略有复杂，例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var son1 = new Son();</div><div class="line">var son2 = new Son();</div><div class="line"></div><div class="line">son1.arr == son2.arr; // false</div><div class="line">son1.fun1 == son2.fun1; //false</div><div class="line"></div><div class="line">son1;</div><div class="line">/*</div><div class="line">&#123;</div><div class="line">    arr: [1],</div><div class="line">    val: 1,</div><div class="line">    __proto__: &#123;</div><div class="line">        constructor: Son(),</div><div class="line">        __proto__: Object</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="方法五：Object-create"><a href="#方法五：Object-create" class="headerlink" title="方法五：Object.create()"></a>方法五：Object.create()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Father()&#123;</div><div class="line">    this.val = 1;</div><div class="line">    this.arr = [1];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Father.prototype.fun = function()&#123;&#125;;</div><div class="line"></div><div class="line">function Son()&#123;</div><div class="line">    // ...</div><div class="line">    Father.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Son.prototype = Object.create(Father.prototype); // 相当于上一方法中的beget；</div><div class="line">Son.prototype.constructor = Son;</div></pre></td></tr></table></figure>
+<p>优点：完美解决上述问题，<br>缺点：IE8不支持Object.create()，例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var son1 = new Son();</div><div class="line">var son2 = new Son();</div><div class="line"></div><div class="line">son1.arr == son2.arr; // false</div><div class="line">son1.fun1 == son2.fun1; //false</div><div class="line"></div><div class="line">son1;</div><div class="line">/*</div><div class="line">&#123;</div><div class="line">    arr: [1],</div><div class="line">    val: 1,</div><div class="line">    __proto__: &#123;</div><div class="line">        constructor: Son(),</div><div class="line">        __proto__: Object</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/03/JS继承中级/" data-id="cj2py3qxt000f48zla72jafq9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/">Command Line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network-security/">Network security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Command-Line/" style="font-size: 10px;">Command Line</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Network-security/" style="font-size: 13.33px;">Network security</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Others/" style="font-size: 10px;">Others</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/03/JS继承中级/">JS继承（中级）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS 外边距叠加/">外边距叠加 Margin</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS：模块居中/">CSS使div居中</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS浏览器默认样式/">CSS浏览器默认样式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

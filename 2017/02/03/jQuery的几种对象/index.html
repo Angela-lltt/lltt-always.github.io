@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jquery的几种对象 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="详细介绍 Jquery 中几种对象——XMLHttpRequest, jqXHR, Promise Object 与 Deferred Object，及它们的联系与区别。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jquery的几种对象">
+<meta property="og:url" content="http://yoursite.com/2017/02/03/jQuery的几种对象/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="详细介绍 Jquery 中几种对象——XMLHttpRequest, jqXHR, Promise Object 与 Deferred Object，及它们的联系与区别。">
+<meta property="og:updated_time" content="2017-02-03T08:31:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jquery的几种对象">
+<meta name="twitter:description" content="详细介绍 Jquery 中几种对象——XMLHttpRequest, jqXHR, Promise Object 与 Deferred Object，及它们的联系与区别。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jQuery的几种对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/03/jQuery的几种对象/" class="article-date">
+  <time datetime="2017-02-03T08:31:21.000Z" itemprop="datePublished">2017-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jquery的几种对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>详细介绍 Jquery 中几种对象——XMLHttpRequest, jqXHR, Promise Object 与 Deferred Object，及它们的联系与区别。</p>
+<a id="more"></a>
+<h1 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h1><p>一些jQuery的Ajax函数返回原生XMLHttpRequest对象，或者把它作为参数传递给success/error/complete操作。但当传输机制不是XMLHttpRequest时（例如，一个JSONP请求脚本，返回一个脚本 tag 时），返回的不是XHR对象。</p>
+<h1 id="jqXHR"><a href="#jqXHR" class="headerlink" title="jqXHR"></a>jqXHR</h1><p>从jQuery1.5开始，$.ajax()返回jqXHR对象，是浏览器原生XMLHttpRequest的超集，当传输机制不是是XMLHttpRequest时（例如，一个JSONP请求脚本，返回一个脚本 tag 时），jqXHR对象尽可能的模拟原生的XHR功能。</p>
+<p>$.ajax()返回的jqXHR对象实现了 Promise 接口, 使它拥有了 Promise 的所有属性，方法和行为。</p>
+<p>常用方法</p>
+<ul>
+<li><p>jqXHR.done(function(data, textStatus, jqXHR) {}): 参阅 Deferred.done()</p>
+<p>参数：data, textStatus, 和 jqXHR 对象</p>
+<p>textStatus的状态(“success”, “notmodified”, “nocontent”，”error”, “timeout”, “abort”, 或者 “parsererror”)</p>
+</li>
+<li><p>jqXHR.fail(function(jqXHR, textStatus, errorThrown) {}): 参阅 Deferred.fail()</p>
+<p>参数：jqXHR 对象, textStatus, 和 errorThrown</p>
+</li>
+<li><p>jqXHR.always(): 参阅 Deferred.always()</p>
+</li>
+<li>jqXHR.then(): 参阅 Deferred.then()</li>
+</ul>
+<h1 id="Promise-Object"><a href="#Promise-Object" class="headerlink" title="Promise Object"></a>Promise Object</h1><p>为了不让外部程序可以直接访问可改变状态的 Deferred 对象，它提供了 Deferred 对象的部分方法——then, done, fail, always, pipe, progress, state 和 promise。</p>
+<h1 id="Deferred-Object"><a href="#Deferred-Object" class="headerlink" title="Deferred Object"></a>Deferred Object</h1><p>从jQuery1.5开始，Deferred 对象提供一个注册多个回调函数到自管理的回调函数队列中<br>，根据不同情况调用回调函数，并传递同步/异步函数的成功或失败的状态。</p>
+<p>常用方法</p>
+<ul>
+<li>deferred.always()</li>
+<li>deferred.done()</li>
+<li>deferred.fail()</li>
+<li>deferred.isRejected()</li>
+<li>deferred.isResolved()</li>
+<li>deferred.notify()</li>
+<li>deferred.notifyWith()</li>
+<li>deferred.pipe()</li>
+<li>deferred.progress()</li>
+<li>deferred.reject()</li>
+<li>deferred.rejectWith()</li>
+<li>deferred.resolve()</li>
+<li>deferred.resolveWith()</li>
+<li>deferred.state()</li>
+<li>deferred.then()</li>
+<li>jQuery.Deferred()</li>
+<li>jQuery.when()</li>
+<li>.promise()</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/03/jQuery的几种对象/" data-id="cj2py3qza001748zlbugiofsz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/03/CSS px & Device px/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS像素, 设备像素 and 参考像素
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/03/px、em、rem与百分比/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">px、em、rem与百分比</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command-Line/">Command Line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network-security/">Network security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 16.67px;">CSS</a> <a href="/tags/Command-Line/" style="font-size: 10px;">Command Line</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Network-security/" style="font-size: 13.33px;">Network security</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Others/" style="font-size: 10px;">Others</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/03/JS继承中级/">JS继承（中级）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS 外边距叠加/">外边距叠加 Margin</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS：模块居中/">CSS使div居中</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/CSS浏览器默认样式/">CSS浏览器默认样式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
