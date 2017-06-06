@@ -1,0 +1,840 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Webpack API Configuration">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack Configuration">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/webpack configuration/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Webpack API Configuration">
+<meta property="og:updated_time" content="2017-06-06T04:30:29.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack Configuration">
+<meta name="twitter:description" content="Webpack API Configuration">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/06/webpack configuration/"/>
+
+
+
+
+
+  <title>Webpack Configuration | Hexo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/06/webpack configuration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dora Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Webpack Configuration</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T12:30:29+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Webpack API Configuration</p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>webpack 输入的是一个配置对象。有两种传递该配置对象的方法：CLI与node.js API，具体使用哪种取决于你使用webpack的方式。</p>
+<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p>如果你使用的是CLI工具，可以读取到一个webpack.config.js(或者通过config选项传递文件)，文件应该输出配置对象如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="node-js-API"><a href="#node-js-API" class="headerlink" title="node.js API"></a>node.js API</h2><p>如果你使用node.js API，你需要使用参数的方式传递配置对象：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">webpack(&#123;</div><div class="line">    <span class="comment">//configuration</span></div><div class="line">&#125;, callback)</div></pre></td></tr></table></figure></p>
+<h2 id="多重配置"><a href="#多重配置" class="headerlink" title="多重配置"></a>多重配置</h2><p>两种情况中你也可以使用一个配置数组，这样可以并行处理。他们共享文件系统缓存与监听，因此比多次调用webpack更有效</p>
+<h1 id="配置对象内容"><a href="#配置对象内容" class="headerlink" title="配置对象内容"></a>配置对象内容</h1><blockquote>
+<p>请记住你不必在配置文件中书写纯JSON对象。可以使用任意你想用的Javascript。它只是一个node模板</p>
+</blockquote>
+<p>一个简单的配置对象举例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    context: __dirname + &quot;/app&quot;,</div><div class="line">    entry: &quot;./entry&quot;,</div><div class="line">    output: &#123;</div><div class="line">        path: __dirname + &quot;/dist&quot;,</div><div class="line">        filename: &quot;bundle.js&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="context——上下文"><a href="#context——上下文" class="headerlink" title="context——上下文"></a>context——上下文</h2><p>解析 <code>entry</code> 选项的绝对路径，如果 <code>output.pathinfo</code> 参数被设置，包含的pathinfo被该绝对路径缩短（即为绝对路径的子目录）</p>
+<h2 id="entry——入口文件"><a href="#entry——入口文件" class="headerlink" title="entry——入口文件"></a>entry——入口文件</h2><p>如果传递一个字符串：字符串被解析为开始时加载的模块。<br>如果传递一个数组：所有模块在开始时载入，最后一个被输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">entry: [&quot;./entry1&quot;, &quot;./entry2&quot;]</div></pre></td></tr></table></figure>
+<p>如果传递一个对象：会创建多个入口束，key为块名称，value可以为字符串或数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    entry: &#123;</div><div class="line">        page1: &quot;./page1&quot;,</div><div class="line">        page2: [&quot;./entry1&quot;, &quot;./entry2&quot;]</div><div class="line">    &#125;,</div><div class="line">    output: &#123;</div><div class="line">        // Make sure to use [name] or [id] in output.filename</div><div class="line">        //  when using multiple entry points</div><div class="line">        filename: &quot;[name].bundle.js&quot;,</div><div class="line">        chunkFilename: &quot;[id].bundle.js&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：不可以针对入口设置其他特别的配置，如果你需要对入口文件进行特殊配置，你需要使用上述的<a href="##多重配置">多重配置</a></p>
+</blockquote>
+<h2 id="output——输出文件"><a href="#output——输出文件" class="headerlink" title="output——输出文件"></a>output——输出文件</h2><p>影响编译输出的选项，<code>output</code> 选项告诉webpack如何将编译后的文件书写到磁盘中。注意，当有多重 <code>entry</code> 时，规定只有一个输出配置。<br>如果你使用任意的散列法（hash或者chunkhash），要确保考虑到了模块的尺寸，可以使用<code>OccurrenceOrderPlugin</code> 或者 <code>recordsPath</code></p>
+<h3 id="output-filename"><a href="#output-filename" class="headerlink" title="output.filename"></a>output.filename</h3><p>指定每一个输出到磁盘的文件名。在这里绝对不能指定绝对路径。<code>output.path</code> 选项决定了文件写入磁盘的位置，<code>filename</code> 仅用作每个文件的命名</p>
+<ul>
+<li>单入口</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  entry: &apos;./src/app.js&apos;,</div><div class="line">  output: &#123;</div><div class="line">    filename: &apos;bundle.js&apos;,</div><div class="line">    path: __dirname + &apos;/build&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// writes to disk: ./build/bundle.js</div></pre></td></tr></table></figure>
+<ul>
+<li>多入口<br>如果你的配置创建了不止一个“chunk”块（比如使用了多入口或者使用了类似CommonsChunkPlugin插件），你应该使用“替代物”来确保每个文件的名字都不相同。<br><code>name</code> 被chunk名取代<br><code>hash</code> 被编译文件的hash值取代<br><code>chunkhash</code> 被chunk的hash值取代</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  entry: &#123;</div><div class="line">    app: &apos;./src/app.js&apos;,</div><div class="line">    search: &apos;./src/search.js&apos;</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">    filename: &apos;[name].js&apos;,</div><div class="line">    path: __dirname + &apos;/build&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// writes to disk: ./build/app.js, ./build/search.js</div></pre></td></tr></table></figure>
+<h3 id="output-path"><a href="#output-path" class="headerlink" title="output.path"></a>output.path</h3><p>输出路径，必须为绝对路径<br><code>hash</code> 被编译文件的hash值取代</p>
+<h3 id="output-publicPath"><a href="#output-publicPath" class="headerlink" title="output.publicPath"></a>output.publicPath</h3><p><code>publicPath</code> 指定输出文件在浏览器中引用时的公共URL地址，对于使用<code>&lt;link&gt;</code>、<code>&lt;script&gt;</code> 标签的加载或是像图片一样的引用资源，<code>publicPath</code> 被用作为文件的 href 或 url 当 publicPath 与他们在磁盘上的位置不同时（区别于 <code>path</code>）。这对于当你想要访问在一个不同域或者CDN的一些或者全部输出文件时很有帮助。Webpack Dev Server也使用这种方法来确定输出文件期望的服务器路径。和 <code>path</code> 相同，你可以使用 hash 优化缓存机制</p>
+<ul>
+<li><p>config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    path: &quot;/home/proj/public/assets&quot;,</div><div class="line">    publicPath: &quot;/assets/&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>index.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">  &lt;link href=&quot;/assets/spinner.gif&quot;/&gt;</div><div class="line">&lt;/head&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    path: &quot;/home/proj/cdn/assets/[hash]&quot;,</div><div class="line">    publicPath: &quot;http://cdn.example.com/assets/[hash]/&quot;</div><div class="line">&#125;</div><div class="line">//使用CDN和hash值的例子</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注：如果在编译的时候还不知道最终输出文件的 <code>publicPath</code>，可以留为 blank 然后运行过程中在入口文件进行动态设置。如果在编译的时候你不知道 <code>publicPath</code> ，你可以省略它，然后在入口文件设置 <code>__webpack_public_path__</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> __webpack_public_path__ = myRuntimePublicPath</div><div class="line"></div><div class="line">// rest of your application entry</div></pre></td></tr></table></figure>
+<h3 id="output-chunkFilename"><a href="#output-chunkFilename" class="headerlink" title="output.chunkFilename"></a>output.chunkFilename</h3><p>没有入口的 chunks 文件名，其值是对于 <code>output.path</code> 的相对路径<br>[id] 是指 chunk 的id<br>[name] 是指 chunk 的名字（如果chunk没有名字则使用它的id）<br>[hash] 是指编译文件的hash值</p>
+<h3 id="output-sourceMapFilename"><a href="#output-sourceMapFilename" class="headerlink" title="output.sourceMapFilename"></a>output.sourceMapFilename</h3><p>JS文件的SourceMap文件名，这些文件保存在 output.path 目录</p>
+<h2 id="module"><a href="#module" class="headerlink" title="module"></a>module</h2><p>影响常规模块的选项</p>
+<h3 id="module-loaders"><a href="#module-loaders" class="headerlink" title="module.loaders"></a>module.loaders</h3><p>自动应用的加载器（loaders）数组，每一项都可以有如下一些属性：</p>
+<ul>
+<li>test 一定要满足的条件</li>
+<li>exclude 一定不满足的条件</li>
+<li>include 包含将被加载器转换的入口文件的路径或文件数组</li>
+<li>loader 用”!”分隔加载器的字符串</li>
+<li>loaders 加载器字符串数组</li>
+</ul>
+<p>条件可以是一个正则表达式（用来测试绝对路径），可以是一个包含绝对路径的字符串，一个返回值为布尔值的函数，或者以上三种中一种的数组，（使用”and”连接）？？</p>
+<p>详见<a href="http://webpack.github.io/docs/loaders.html" target="_blank" rel="external">loaders官方文档</a>或<a href="http://zhaoda.net/webpack-handbook/loader.html" target="_blank" rel="external">loader中文文档</a></p>
+<blockquote>
+<p>注：这里的加载器被应用它们的相应的源码解析。这意味着它们不是被相关的配置文件解析。如果你使用npm安装加载器，并且你的node_modules文件夹没有包含全部的加载器或者不在父文件夹内，webpack将搜索不到加载器。你可以像resolveLoader.root选项中添加node_modules文件夹的绝对路径。<code>(resolveLoader: { root: path.join(__dirname, &quot;node_modules&quot;) })</code></p>
+</blockquote>
+<h3 id="module-preLoaders-module-postLoaders"><a href="#module-preLoaders-module-postLoaders" class="headerlink" title="module.preLoaders, module.postLoaders"></a>module.preLoaders, module.postLoaders</h3><h2 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h2><p>影响模块解析的选项</p>
+<h3 id="resolve-alias-请求重定向"><a href="#resolve-alias-请求重定向" class="headerlink" title="resolve.alias 请求重定向"></a>resolve.alias 请求重定向</h3><p>用其他路径或模块来替代当前模块，即把用户的一个require请求重定向到另一个路径<br>格式为对象，键名表示模块名，键值为新路径。这相当于做了一次替换，但是更智能。如果键值以$为结束符，只有当require请求中的参数与键值（不包含$）精确匹配时，模块才会被替换。<br>如果键值是相对路径，表示为发起require请求文件的相对路径</p>
+<p>例子：在/abc/entry.js文件中发起require请求配置不同的重定向设置</p>
+<table>
+<thead>
+<tr>
+<th>alias</th>
+<th>require(“xyz”)</th>
+<th>require(“xyz/file.js”)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{}</td>
+<td>/abc/node_modules/xyz/index.js</td>
+<td>/abc/node_modules/xyz/file.js</td>
+</tr>
+<tr>
+<td>{ xyz: “/absolute/path/to/file.js” }</td>
+<td>/absolute/path/to/file.js</td>
+<td>error</td>
+</tr>
+<tr>
+<td>{ xyz$: “/absolute/path/to/file.js” }</td>
+<td>/absolute/path/to/file.js</td>
+<td>/abc/node_modules/xyz/file.js</td>
+</tr>
+<tr>
+<td>{ xyz: “/some/dir” }</td>
+<td>/some/dir/index.js</td>
+<td>/some/dir/file.js</td>
+</tr>
+<tr>
+<td>{ xyz$: “/some/dir” }</td>
+<td>/some/dir/index.js</td>
+<td>/abc/node_modules/xyz/file.js</td>
+</tr>
+<tr>
+<td>{ xyz: “xyz/dir” }</td>
+<td>/abc/node_modules/xyz/dir/index.js</td>
+<td>/abc/node_modules/xyz/dir/file.js</td>
+</tr>
+<tr>
+<td>{ xyz$: “xyz/dir” }</td>
+<td>/abc/node_modules/xyz/dir/index.js</td>
+<td>/abc/node_modules/xyz/file.js</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resolve-root"><a href="#resolve-root" class="headerlink" title="resolve.root"></a>resolve.root</h3><p>容纳模块的目录<strong>（绝对路径）</strong>，也可以是一个目录数组。这项设置可以用来向搜索路径添加特殊目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div><div class="line"></div><div class="line">// ...</div><div class="line">resolve: &#123;</div><div class="line">  root: [</div><div class="line">    path.resolve(&apos;./app/modules&apos;),</div><div class="line">    path.resolve(&apos;./vendor/modules&apos;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="resolve-modulesDirectories"><a href="#resolve-modulesDirectories" class="headerlink" title="resolve.modulesDirectories"></a>resolve.modulesDirectories</h3><p>能够被当前目录及其祖先目录解析来搜索模块的目录名数组，这个方法与node寻找node_modules目录的方法相似。举例，如果值为[“mydir”]，webpack会在“./mydir”, “../mydir”, “../../mydir”目录中查询</p>
+<blockquote>
+<p>注：默认为[“web_modules”, “node_modules”]</p>
+</blockquote>
+<h3 id="resolve-fallback"><a href="#resolve-fallback" class="headerlink" title="resolve.fallback"></a>resolve.fallback</h3><p>当webpack没有在resolve.root或resolve.modulesDirectories中搜索到模块时，再去检索的一个目录（或绝对路径的目录数组）</p>
+<h3 id="resolve-extensions"><a href="#resolve-extensions" class="headerlink" title="resolve.extensions"></a>resolve.extensions</h3><p>用来解析模块的扩展名数组，用于指明程序自动补全识别哪些后缀。举例，为了发现CoffeeScript文件，数组中应该包含字符串”.coffee”。</p>
+<blockquote>
+<p>默认值：[“.webpack.js”, “.web.js”, “.js”]</p>
+<p>注：设置该选项会重写默认值，意味着webpack不再会尝试解析默认扩展名文件的模块，如果你想要没有扩展名的模块能够正确解析，数组中必须包含一个空字符串。同样的，如果你想要不使用扩展名引用模块（例：require(‘underscore’)）作为.js文件解析，你必须在数组中包含字符串”.js”。</p>
+</blockquote>
+<h2 id="resolveLoader"><a href="#resolveLoader" class="headerlink" title="resolveLoader"></a>resolveLoader</h2><p>类似于resolve，为引用加载器（loaders）。</p>
+<p>默认值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    modulesDirectories: [&quot;web_loaders&quot;, &quot;web_modules&quot;, &quot;node_loaders&quot;, &quot;node_modules&quot;],</div><div class="line">    extensions: [&quot;&quot;, &quot;.webpack-loader.js&quot;, &quot;.web-loader.js&quot;, &quot;.loader.js&quot;, &quot;.js&quot;],</div><div class="line">    packageMains: [&quot;webpackLoader&quot;, &quot;webLoader&quot;, &quot;loader&quot;, &quot;main&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：这里你可以使用alias或者resolve的其他特性，使用方法与resolve相似。如{ txt: ‘raw-loader’ }配置会使用raw-loader来解析txt!templates/demo.txt</p>
+</blockquote>
+<h3 id="resolveLoader-moduleTemplates"><a href="#resolveLoader-moduleTemplates" class="headerlink" title="resolveLoader.moduleTemplates"></a>resolveLoader.moduleTemplates</h3><p>该选项是resolveLoader的性能参数<br>描述的是loaders的命名规则和搜索优先顺序<em>不确定</em></p>
+<blockquote>
+<p>Default: [“<em>-webpack-loader”, “</em>-web-loader”, “<em>-loader”, “</em>“]</p>
+</blockquote>
+<h2 id="externals"><a href="#externals" class="headerlink" title="externals"></a>externals</h2><p>表示不应该被webpack打包的依赖，反而保留打包结果对它的引用。即使某些模块走CDN并以<code>&lt;script&gt;</code>的形式挂载到页面上来加载，但又希望能在 webpack 的模块中使用上。<br>（The requesting technique is modified to what is specified by output.libraryTarget or on a per dependency basis using a property-value pair object definition.）<br>因此，externals可以是如下的一个字符串，对象，函数，正则或数组。</p>
+<h2 id="target"><a href="#target" class="headerlink" title="target"></a>target</h2><ul>
+<li>web 编译结果可以在类浏览器环境中使用</li>
+<li>webworker 编译为WebWorker</li>
+<li>node 编译文件可以在类似nodejs环境中使用（使用require加载chunks）</li>
+<li>async-node 编译文件可以在类似nodejs环境中使用（使用fs和vm异步加载chunks）</li>
+<li>node-webkit</li>
+<li>electron</li>
+<li>electron-renderer</li>
+</ul>
+<h2 id="bail"><a href="#bail" class="headerlink" title="bail"></a>bail</h2><p>报告第一个错误为不可更正的错误而非容忍它</p>
+<h2 id="profile"><a href="#profile" class="headerlink" title="profile"></a>profile</h2><p>获取每个模块的时间信息</p>
+<blockquote>
+<p>提示：可以使用<a href="http://webpack.github.io/analyse/" target="_blank" rel="external">分析工具</a>将它可视化。<code>--json</code>和<code>stats.toJson()</code>可以将状态信息以JSON格式返回给你。</p>
+</blockquote>
+<h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><h1 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h1><blockquote>
+<ol>
+<li>chunk 被entry所依赖的额外代码块</li>
+</ol>
+</blockquote>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://webpack.vuefe.cn/concepts/index/" target="_blank" rel="external">webpack中文网</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/06/vue 资料库/" rel="next" title="Vue 资料库">
+                <i class="fa fa-chevron-left"></i> Vue 资料库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/06/webpack学习笔记/" rel="prev" title="webpack-demos 学习笔记">
+                webpack-demos 学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Dora Li" />
+          <p class="site-author-name" itemprop="name">Dora Li</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CLI"><span class="nav-number">1.1.</span> <span class="nav-text">CLI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-API"><span class="nav-number">1.2.</span> <span class="nav-text">node.js API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多重配置"><span class="nav-number">1.3.</span> <span class="nav-text">多重配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置对象内容"><span class="nav-number">2.</span> <span class="nav-text">配置对象内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#context——上下文"><span class="nav-number">2.1.</span> <span class="nav-text">context——上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#entry——入口文件"><span class="nav-number">2.2.</span> <span class="nav-text">entry——入口文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#output——输出文件"><span class="nav-number">2.3.</span> <span class="nav-text">output——输出文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#output-filename"><span class="nav-number">2.3.1.</span> <span class="nav-text">output.filename</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-path"><span class="nav-number">2.3.2.</span> <span class="nav-text">output.path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-publicPath"><span class="nav-number">2.3.3.</span> <span class="nav-text">output.publicPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-chunkFilename"><span class="nav-number">2.3.4.</span> <span class="nav-text">output.chunkFilename</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-sourceMapFilename"><span class="nav-number">2.3.5.</span> <span class="nav-text">output.sourceMapFilename</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#module"><span class="nav-number">2.4.</span> <span class="nav-text">module</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#module-loaders"><span class="nav-number">2.4.1.</span> <span class="nav-text">module.loaders</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module-preLoaders-module-postLoaders"><span class="nav-number">2.4.2.</span> <span class="nav-text">module.preLoaders, module.postLoaders</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resolve"><span class="nav-number">2.5.</span> <span class="nav-text">resolve</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#resolve-alias-请求重定向"><span class="nav-number">2.5.1.</span> <span class="nav-text">resolve.alias 请求重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resolve-root"><span class="nav-number">2.5.2.</span> <span class="nav-text">resolve.root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resolve-modulesDirectories"><span class="nav-number">2.5.3.</span> <span class="nav-text">resolve.modulesDirectories</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resolve-fallback"><span class="nav-number">2.5.4.</span> <span class="nav-text">resolve.fallback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resolve-extensions"><span class="nav-number">2.5.5.</span> <span class="nav-text">resolve.extensions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resolveLoader"><span class="nav-number">2.6.</span> <span class="nav-text">resolveLoader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#resolveLoader-moduleTemplates"><span class="nav-number">2.6.1.</span> <span class="nav-text">resolveLoader.moduleTemplates</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#externals"><span class="nav-number">2.7.</span> <span class="nav-text">externals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#target"><span class="nav-number">2.8.</span> <span class="nav-text">target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bail"><span class="nav-number">2.9.</span> <span class="nav-text">bail</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#profile"><span class="nav-number">2.10.</span> <span class="nav-text">profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache"><span class="nav-number">2.11.</span> <span class="nav-text">cache</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#备注"><span class="nav-number">3.</span> <span class="nav-text">备注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dora Li</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

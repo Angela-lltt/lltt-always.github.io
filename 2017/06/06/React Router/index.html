@@ -1,0 +1,731 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="简述React Router组件">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Router">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/React Router/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="简述React Router组件">
+<meta property="og:updated_time" content="2017-06-06T04:30:29.780Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Router">
+<meta name="twitter:description" content="简述React Router组件">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/06/React Router/"/>
+
+
+
+
+
+  <title>React Router | Hexo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/06/React Router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dora Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React Router</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T12:30:29+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>简述React Router组件</p>
+<a id="more"></a>
+<blockquote>
+<p>Router 是一个组件，通过 render 函数引入来使用</p>
+</blockquote>
+<p><a href="https://github.com/reactjs/react-router/blob/master/docs/API.md#link" target="_blank" rel="external">React Router API</a><br><a href="https://github.com/reactjs/react-router-tutorial/tree/master/lessons" target="_blank" rel="external">React Router 指导教程</a></p>
+<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p>React Router 是建立在 history 上的。简单的说，一个history知道如何去监听浏览器地址栏的变化，将地址解析为路由器可以用来匹配路由的location对象，然后渲染正确的组件。<br>有三种常见的history，使用任意一种都可以为React Router的消耗自定义history工具。</p>
+<h2 id="browserHistory"><a href="#browserHistory" class="headerlink" title="browserHistory"></a>browserHistory</h2><p>browserHistory 是为浏览器应用中的React Router推荐使用的history，它使用建立在浏览器中的history API来操作URL，创建真实的URL地址。</p>
+<blockquote>
+<p>使用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//Javascript module import</div><div class="line">import &#123; browserHistory &#125; from &apos;react-router&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">render(</div><div class="line">  &lt;Router history=&#123;browserHistory&#125; routes=&#123;routes&#125; /&gt;,</div><div class="line">  document.getElementById(&apos;app&apos;)</div><div class="line">)</div></pre></td></tr></table></figure>
+<h2 id="hashHistory"><a href="#hashHistory" class="headerlink" title="hashHistory"></a>hashHistory</h2><p>用url hash值和一个查询key来记录状态，因此地址栏的地址会有额外的垃圾 。hashHistory不需要额外的服务器配置，但是表现次于browserHistory。</p>
+<h2 id="createMemoryHistory"><a href="#createMemoryHistory" class="headerlink" title="createMemoryHistory"></a>createMemoryHistory</h2><h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>在一个应用中，最常用的组件应该是<link>，它允许用户在应用中进行导航。它与<a>标签的唯一区别是它知道它的链接地址是否是活跃的。</a></p>
+<ol>
+<li>to：位置描述，通常是一个字符串或者对象，其语义如下,<ul>
+<li>字符串：表示链接到的绝对地址（不支持相对地址）</li>
+<li>对象：</li>
+<li><ol>
+<li>pathname：一个字符串，表示链接到的地址</li>
+<li>query：待转换为字符串的key：value对象（弃用）</li>
+<li>hash：放入URL的hash值（弃用）</li>
+<li>state：保存location的状态（弃用）</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>activeClassName：当<link>路由被激活的className，默认没有active class</li>
+<li>activeStyle：当<link>路由被激活的样式</li>
+<li>onClick(e)：点击事件的句柄函数，调用e.stopPropagation()可以阻止事件冒泡，调用e.preventDefault()可以组织开火的传递？？</li>
+<li>onlyActiveOnIndex：如果是true，当前路由和link路由匹配时被激活</li>
+</ol>
+<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><p><route>——配置组件。用来显式地映射路由到应用的组件层。</route></p>
+<ol>
+<li>path：在URL中使用的path，它可以是相对父路由的地址，但若以’/‘开头则表示绝对地址。如果未定义，路由器会匹配子路由。注：绝对地址不能用于动态加载的路由配置。</li>
+<li>component：当路由与URL匹配时渲染的单一组件，它可以调用父路由组件的this.props.children属性来渲染</li>
+<li>components：当路径与URL匹配时，路由可以定义一个或多个named组件为[name]: component对象来渲染，可以嗲用父组件的this.props[name]</li>
+</ol>
+<h2 id="IndexRedirect"><a href="#IndexRedirect" class="headerlink" title="IndexRedirect"></a>IndexRedirect</h2><p>允许对父路由重定向到其他路由，它可以设置成一个表示父路由默认路由的子路由。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;Router history=&#123; browserHistory &#125;&gt;</div><div class="line">    &lt;Route name=&quot;home&quot; path=&quot;/dockerkit/&quot; component=&#123; App &#125;&gt;</div><div class="line">        &lt;Route name=&quot;repo&quot; path=&quot;repo/&quot; component=&#123; RepoList &#125; /&gt;</div><div class="line">        &lt;Route name=&quot;testpage&quot; path=&quot;testpage/&quot; component=&#123; Test &#125; /&gt;</div><div class="line">        &lt;Route name=&quot;login&quot; path=&quot;login/&quot; component=&#123; LoginPage &#125; /&gt;</div><div class="line">        &lt;IndexRedirect from=&quot;*&quot; to=&quot;/dockerkit/repo/&quot; /&gt;</div><div class="line">    &lt;/Route&gt;            </div><div class="line">&lt;/Router&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/06/Nginx配置反向代理/" rel="next" title="Nginx 初探">
+                <i class="fa fa-chevron-left"></i> Nginx 初探
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/06/React/" rel="prev" title="React">
+                React <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Dora Li" />
+          <p class="site-author-name" itemprop="name">Dora Li</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#History"><span class="nav-number">1.</span> <span class="nav-text">History</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#browserHistory"><span class="nav-number">1.1.</span> <span class="nav-text">browserHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashHistory"><span class="nav-number">1.2.</span> <span class="nav-text">hashHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createMemoryHistory"><span class="nav-number">1.3.</span> <span class="nav-text">createMemoryHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link"><span class="nav-number">1.4.</span> <span class="nav-text">Link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Route"><span class="nav-number">1.5.</span> <span class="nav-text">Route</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexRedirect"><span class="nav-number">1.6.</span> <span class="nav-text">IndexRedirect</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dora Li</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

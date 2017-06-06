@@ -1,0 +1,756 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="详细介绍 Jquery、ES5 与 ES7 中实现异步调用的方法">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步调用">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/异步调用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="详细介绍 Jquery、ES5 与 ES7 中实现异步调用的方法">
+<meta property="og:updated_time" content="2017-06-06T04:30:29.812Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="异步调用">
+<meta name="twitter:description" content="详细介绍 Jquery、ES5 与 ES7 中实现异步调用的方法">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/06/异步调用/"/>
+
+
+
+
+
+  <title>异步调用 | Hexo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/06/异步调用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dora Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">异步调用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T12:30:29+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>详细介绍 Jquery、ES5 与 ES7 中实现异步调用的方法</p>
+<a id="more"></a>
+<h2 id="同步调用、回调与异步调用"><a href="#同步调用、回调与异步调用" class="headerlink" title="同步调用、回调与异步调用"></a>同步调用、回调与异步调用</h2><ul>
+<li><p>同步调用<br>是一种阻塞式调用，如欲完成ABC三个事件，先执行A，A完成后执行B，这时B需要花费2小时，则整个过程需要等待2小时，直到B完成再去执行C</p>
+</li>
+<li><p>回调<br>回调是一种双向调用模式，也就是说被调用方法在接口被调用时也会调用对方的接口。这种就是在函数的参数中带有一个其他函数指针，当需要的时候我们可以通过函数指针名进行调用其他函数即发送消息到其他函数。有两种做法：先执行回调函数再继续执行其他代码，或先执行其他代码然后执行回调函数。</p>
+</li>
+<li><p>异步调用<br>异步调用是一种类似消息或事件的机制，不过它的调用方向刚好相反，接口的服务在收到某种讯息或发生某种事件时，会主动通知客户方（即调用客户方的接口）。</p>
+</li>
+</ul>
+<p>注：由于JS是单线程运行，因此JS的异步仅对于发起IO请求有效。</p>
+<h2 id="回调函数——callback"><a href="#回调函数——callback" class="headerlink" title="回调函数——callback"></a>回调函数——callback</h2><p>假定有两个函数f1和f2，后者等待前者的执行结果，f3与f1、f2的执行结果不相关。执行3个任务的方式如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">    let s1 = 0;</div><div class="line">    for (let i = 0; i &lt;100000; i++) &#123;</div><div class="line">        for (let j = 0; j&lt;100000; j++) &#123;</div><div class="line">            s1++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return s1</div><div class="line">&#125;</div><div class="line"></div><div class="line">function f2(a) &#123;</div><div class="line">    let s2 = 10;</div><div class="line">    console.log(s2+a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function f3() &#123;</div><div class="line">    console.log(&quot;OK&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f2(f1());</div><div class="line">f3();</div></pre></td></tr></table></figure></p>
+<p>但f1是一个很耗时的任务，则f3需要等待f1、f2执行完毕后再执行，这时，可以把f2写为f1的回调函数(callback)，并设置setTimeout，这样既可先执行过程简单的f3，再执f1、f2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/*callback 异步调用*/</div><div class="line">function f1(callback) &#123;</div><div class="line">    setTimeout(function() &#123;</div><div class="line">        let s1 = 0;</div><div class="line">        for (let i = 0; i &lt;100000; i++) &#123;</div><div class="line">            for (let j = 0; j&lt;100000; j++) &#123;</div><div class="line">                s1++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        callback(s1);</div><div class="line">    &#125;,10000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">function f2(a) &#123;</div><div class="line">    let s2 = 10;</div><div class="line">    console.log(s2+a);  </div><div class="line">&#125;</div><div class="line"></div><div class="line">function f3() &#123;</div><div class="line">    console.log(&quot;OK&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2);</div><div class="line">f3();</div></pre></td></tr></table></figure></p>
+<h2 id="Jquery的延迟对象——-Deferred"><a href="#Jquery的延迟对象——-Deferred" class="headerlink" title="Jquery的延迟对象——$.Deferred()"></a>Jquery的延迟对象——$.Deferred()</h2><p>简单说，deferred对象就是jQuery的回调函数解决方案。<br>jQuery规定，deferred对象有三种执行状态：未完成、已完成和已失败</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function longWaitTask() &#123;</div><div class="line">    var dfr = $.Deferred();</div><div class="line">    var task = function() &#123;</div><div class="line">        alert(&quot;I&apos;m OK!&quot;);</div><div class="line">    &#125;</div><div class="line">    var task2 = function() &#123;</div><div class="line">        alert(&quot;I&apos;m not good&quot;);</div><div class="line">        dfr.reject();</div><div class="line">    &#125;</div><div class="line">    setTimeout(task, 1000);</div><div class="line">    setTimeout(task2, 2000);</div><div class="line">    return dfr.promise();</div><div class="line">&#125;</div><div class="line">longWaitTask()</div><div class="line"> .done(function() &#123;alert(&quot;Success&quot;);&#125;)</div><div class="line"> .fail(function() &#123;alert(&quot;Failure&quot;);&#125;)</div><div class="line">alert(&quot;OMG!&quot;);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>$.Deferred </p>
+<p>  定义一个Deferred对象</p>
+</li>
+<li><p>deferred.done( doneCallbacks [, doneCallbacks ] )</p>
+<p>  当deferred对象已完成时调用；<br>  doneCallbacks<br>  类型: Function()<br>  一个函数，或者函数数组，当Deferred（延迟）对象得到解决时被调用。<br>  doneCallbacks<br>  类型: Function()<br>  可选的一个函数，或者函数数组，当Deferred（延迟）对象得到解决时被调用。</p>
+</li>
+<li><p>deferred.fail()</p>
+<p>  当deferred对象已失败时调用</p>
+</li>
+<li><p>deferred.promise()</p>
+</li>
+<li><p>deferred.resolve( args )</p>
+<p>  修改deferred对象状态为已完成；<br>  args<br>  类型: Object<br>  传递给完成回调函数（doneCallbacks）的可选的参数。</p>
+</li>
+<li><p>deferred.reject()</p>
+</li>
+<li>$.when</li>
+<li><p>deferred.then()</p>
+<p>  当Deferred（延迟）对象解决，拒绝或仍在进行中时，调用添加处理程序。<br>  then() 方法會回傳一個新的 Promise 物件，可以再這個新的 Promise 物件設定 callback，這樣就可以達到中間過濾/處理資料的目的。</p>
+</li>
+<li><p>deferred.always()</p>
+</li>
+</ul>
+<h2 id="ES6-Promise"><a href="#ES6-Promise" class="headerlink" title="ES6 Promise"></a>ES6 Promise</h2><p>Promise对象用于异步(asynchronous)计算。一个Promise对象代表着一个还未完成，但预期将来会完成的操作。</p>
+<blockquote>
+<p>new Promise(executor);<br>new Promise(function(resolve, reject) { … });</p>
+</blockquote>
+<p>executor：带有 resolve 、reject两个参数的函数对象，它们由JavaScript引擎提供，不用自己部署。第一个参数用在处理执行成功的场景，第二个参数则用在处理执行失败的场景。 一旦我们的操作完成即可调用这些函数。</p>
+<p>Promise新建后就会立即执行</p>
+<p>PromiseStatus对象有以下几种状态:</p>
+<p>pending: 初始状态, 既不是 fulfilled 也不是 rejected.<br>resolved: 成功的操作.<br>rejected: 失败的操作.</p>
+<p>Promise对象的方法</p>
+<ul>
+<li><p>Promise.prototype.then()</p>
+<p>Promise对象的核心，同一个promise的then可以调用多次，并且回调的执行顺序与定义时顺序相同。</p>
+</li>
+<li><p>Promise.prototype.catch()</p>
+</li>
+<li>Promise.all()</li>
+<li>Promise.race()</li>
+<li>Promise.resolve()</li>
+<li>Promise.reject()</li>
+</ul>
+<p>Promise实例生成以后，可以用then方法分别指定resolved状态和rejected状态的回调函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">promise.then(function(value) &#123;</div><div class="line">  // success</div><div class="line">&#125;, function(error) &#123;</div><div class="line">  // failure</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>一个使用Promise对象的简单例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">  var prom = new Promise(function(resolve, reject) &#123;</div><div class="line">    var task = function()&#123;</div><div class="line">      resolve();</div><div class="line">    &#125;</div><div class="line">    setTimeout(task, 1000);</div><div class="line">  &#125;)</div><div class="line">  prom.then(function() &#123;</div><div class="line">    alert(&quot;OK!&quot;);</div><div class="line">  &#125;, function() &#123;</div><div class="line">    alert(&quot;Oh, no!&quot;);</div><div class="line">  &#125;)</div><div class="line">  alert(&quot;I&apos;m first!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="ES7-async-await"><a href="#ES7-async-await" class="headerlink" title="ES7 async/await"></a>ES7 async/await</h2><p>结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">async function() &#123;</div><div class="line">    await Promise Object;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用一个async函数时会立即返回一个Promise对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">  //定义一个函数，函数返回一个Promise  </div><div class="line">  var sleep = function (time) &#123;</div><div class="line">    return new Promise(function (resolve, reject) &#123;</div><div class="line">        setTimeout(function () &#123;</div><div class="line">            resolve();</div><div class="line">        &#125;, time);</div><div class="line">    &#125;)</div><div class="line">  &#125;;  </div><div class="line"></div><div class="line">  var start = async function () &#123;</div><div class="line">    // 在这里使用起来就像同步代码那样直观</div><div class="line">    alert(&apos;start&apos;);</div><div class="line">    await sleep(3000);</div><div class="line">    // await后接收一个Promise实例</div><div class="line">    alert(&apos;end&apos;);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  start();</div><div class="line">  alert(&apos;Insert&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// start</div><div class="line">// Insert</div><div class="line">// end</div></pre></td></tr></table></figure></p>
+<p>通过使用 async/await，我们就可以配合 try/catch 来捕获异步操作过程中的问题，包括 Promise 中 reject 的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">const f = () =&gt; &#123;</div><div class="line">  return new Promise((resolve, reject) =&gt; &#123;</div><div class="line">    setTimeout(() =&gt; &#123;</div><div class="line">      reject(234);</div><div class="line">    &#125;, 2000);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const testAsync = async () =&gt; &#123;</div><div class="line">  try &#123;</div><div class="line">    const t = await f();</div><div class="line">    console.log(t);</div><div class="line">  &#125; catch (err) &#123;</div><div class="line">    console.log(err);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">testAsync();</div></pre></td></tr></table></figure>
+<p>async 也可以在class中调用</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/06/常见status/" rel="next" title="常见 HTTP Status Code">
+                <i class="fa fa-chevron-left"></i> 常见 HTTP Status Code
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/06/浏览器多线程机制/" rel="prev" title="浏览器多线程机制">
+                浏览器多线程机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Dora Li" />
+          <p class="site-author-name" itemprop="name">Dora Li</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步调用、回调与异步调用"><span class="nav-number">1.</span> <span class="nav-text">同步调用、回调与异步调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数——callback"><span class="nav-number">2.</span> <span class="nav-text">回调函数——callback</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jquery的延迟对象——-Deferred"><span class="nav-number">3.</span> <span class="nav-text">Jquery的延迟对象——$.Deferred()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-Promise"><span class="nav-number">4.</span> <span class="nav-text">ES6 Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES7-async-await"><span class="nav-number">5.</span> <span class="nav-text">ES7 async/await</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dora Li</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
